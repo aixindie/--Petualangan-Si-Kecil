@@ -1,8 +1,8 @@
 const progressFill = document.getElementById("progressFill");
 const progressText = document.getElementById("progressText");
 const progressTrack = document.getElementById("progressTrack");
-const loadingLabel = document.getElementById("loadingLabel");
-const loadingContent = document.querySelector(".loading-content");
+const loadingLabel = document.getElementById("indexLabel");
+const loadingContent = document.querySelector(".index-content");
 
 // Progress visual untuk prototipe. Nanti bisa dihubungkan ke proses muat aset asli.
 const totalDuration = 4200;
