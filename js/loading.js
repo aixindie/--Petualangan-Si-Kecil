@@ -1,8 +1,8 @@
 const progressFill = document.getElementById("progressFill");
 const progressText = document.getElementById("progressText");
 const progressTrack = document.getElementById("progressTrack");
-const loadingLabel = document.getElementById("loadingLabel");
-const loadingContent = document.querySelector(".loading-content");
+const loadingLabel = document.getElementById("indexLabel");
+const loadingContent = document.querySelector(".index-content");
 
 if (!progressFill || !progressText || !progressTrack || !loadingLabel || !loadingContent) {
     console.error("Elemen loading tidak lengkap. Periksa struktur index.html.");
