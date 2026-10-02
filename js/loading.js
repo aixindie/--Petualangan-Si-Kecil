@@ -4,6 +4,10 @@ const progressTrack = document.getElementById("progressTrack");
 const loadingLabel = document.getElementById("loadingLabel");
 const loadingContent = document.querySelector(".loading-content");
 
+if (!progressFill || !progressText || !progressTrack || !loadingLabel || !loadingContent) {
+    console.error("Elemen loading tidak lengkap. Periksa struktur index.html.");
+} else {
+
 // Progress visual untuk prototipe. Nanti bisa dihubungkan ke proses muat aset asli.
 const totalDuration = 4200;
 const startedAt = performance.now();
@@ -37,3 +41,4 @@ function updateProgress(now) {
 }
 
 requestAnimationFrame(updateProgress);
+}
