@@ -1,0 +1,134 @@
+.loading-page {
+    display: grid;
+    place-items: center;
+    background: #7db9f4;
+    isolation: isolate;
+}
+
+.loading-background {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Lapisan tipis menjaga Dudu dan tulisan jelas di berbagai latar layar. */
+.loading-page::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(180deg, rgb(27 83 158 / 5%), rgb(30 78 139 / 24%));
+    content: "";
+}
+
+.loading-content {
+    display: flex;
+    width: min(72vw, 760px);
+    max-height: 94%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 2.2vh, 22px);
+    padding: clamp(12px, 3vh, 30px);
+    text-align: center;
+}
+
+.loading-icon {
+    width: clamp(100px, 25vh, 230px);
+    max-height: 48vh;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 7px rgb(34 62 93 / 20%));
+    transform-origin: 50% 85%;
+    animation: dudu-ready 1.5s ease-in-out infinite;
+}
+
+.loading-label {
+    color: var(--loading-ink);
+    font-size: clamp(15px, 2.5vw, 26px);
+    font-weight: 800;
+    text-shadow: 0 2px 5px rgb(30 58 94 / 55%);
+}
+
+.progress-wrapper {
+    width: min(100%, 560px);
+    padding: 3px;
+}
+
+.progress-track {
+    position: relative;
+    width: 100%;
+    height: clamp(20px, 4vh, 32px);
+    overflow: hidden;
+    border: 3px solid #fffdf5;
+    border-radius: 999px;
+    background: rgb(36 73 127 / 35%);
+    box-shadow: 0 4px 0 rgb(28 63 111 / 22%), 0 7px 16px rgb(28 63 111 / 18%);
+}
+
+.progress-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #ffe978, var(--loading-yellow), #ffbf3f);
+    transition: width 80ms linear;
+}
+
+.progress-text {
+    position: absolute;
+    z-index: 1;
+    inset: 50% auto auto 50%;
+    color: #315a8c;
+    font-size: clamp(11px, 1.7vw, 16px);
+    font-weight: 900;
+    text-shadow: 0 1px 0 rgb(255 255 255 / 70%);
+    transform: translate(-50%, -50%);
+}
+
+.loading-content.is-complete .loading-icon {
+    animation: dudu-celebrate 550ms ease-in-out 2;
+}
+
+@keyframes dudu-ready {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-7px) rotate(1deg); }
+}
+
+@keyframes dudu-celebrate {
+    0%, 100% { transform: rotate(0) scale(1); }
+    35% { transform: rotate(-5deg) scale(1.06); }
+    70% { transform: rotate(5deg) scale(1.06); }
+}
+
+/* Pada layar horizontal pendek, tata letak tetap muat dan mengikuti tinggi layar. */
+@media (orientation: landscape) and (max-height: 520px) {
+    .loading-content {
+        width: min(62vw, 660px);
+        gap: clamp(4px, 1.4vh, 10px);
+        padding: 6px 12px;
+    }
+
+    .loading-icon {
+        width: clamp(72px, 24vh, 135px);
+        max-height: 38vh;
+    }
+
+    .loading-label { font-size: clamp(13px, 4vh, 20px); }
+    .progress-track { height: clamp(16px, 5vh, 24px); }
+}
+
+@media (orientation: portrait) {
+    .loading-content { width: min(84vw, 560px); }
+    .loading-icon { width: clamp(115px, 31vw, 215px); max-height: 38vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

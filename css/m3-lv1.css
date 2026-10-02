@@ -1,0 +1,94 @@
+@import url("./m1-lv1.css");
+
+.wash-game-screen { overflow: hidden; }
+.wash-heading { z-index: 5; }
+.wash-coach { z-index: 3; top: 22%; left: 4%; width: min(32%,430px); height: 20%; }
+.wash-coach .coach-mascot { width: 29%; flex-basis: 29%; }
+.wash-coach .speech-bubble span:not(.bubble-sparkle) { font-size: clamp(12px,1.35vw,18px); font-weight: 800; line-height: 1.35; }
+.wash-instruction { position: absolute; z-index: 2; top: 34%; right: 5%; left: 38%; margin: 0; color: #274f79; font-size: clamp(15px,1.7vw,21px); font-weight: 900; text-align: center; text-shadow: 0 2px 0 rgba(255,255,255,.65); }
+
+.step-sources { position: absolute; top: 40%; left: 53%; display: grid; width: min(50vw,440px); height: auto; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(14px,2vw,24px); transform: translateX(-50%); }
+.step-card { --tint:#dff5ff; position: relative; display: flex; min-width: 0; aspect-ratio: 3 / 4; flex-direction: column; align-items: center; justify-content: space-between; gap: .25rem; overflow: hidden; padding: 10px 10px 9px; border: 3px solid white; border-radius: 28px; background: linear-gradient(145deg,#fff,var(--tint)); box-shadow: 0 10px 0 rgba(74,139,203,.18),0 17px 27px rgba(47,99,153,.16); color: #28547e; cursor: grab; font: inherit; touch-action: none; user-select: none; transition: transform .18s ease,box-shadow .18s ease,outline-color .18s ease; }
+.step-rinse { --tint:#def6ff; }
+.step-soap { --tint:#fff0d2; }
+.step-card::before { position: absolute; top: -74px; right: -48px; width: 160px; height: 160px; border-radius: 50%; background: rgba(255,255,255,.5); content: ""; pointer-events: none; }
+.step-card:hover,.step-card:focus-visible,.step-card.is-selected { transform: translateY(-4px); outline: 4px solid rgba(255,255,255,.72); outline-offset: 2px; box-shadow: 0 14px 0 rgba(74,139,203,.15),0 20px 30px rgba(47,99,153,.22); }
+.step-card.is-selected { border-color: #ffcf56; }
+.step-card.is-used { opacity: .68; }
+.step-card.is-complete { cursor: default; }
+.step-art { display: grid; width: 100%; min-height: 0; flex: 1 1 auto; place-items: center; pointer-events: none; }
+.step-art img { display: block; width: auto; height: 100%; max-width: 100%; object-fit: contain; filter: drop-shadow(0 5px 5px rgba(43,73,99,.14)); pointer-events: none; }
+.step-caption { z-index: 1; display: flex; align-items: center; gap: .4rem; color: #305579; font-size: clamp(1rem,1.55vw,1.25rem); font-weight: 1000; }
+.step-caption i { font-style: normal; }
+.drag-cue { color: #7891a7; font-size: clamp(.65rem,.85vw,.78rem); font-weight: 700; }
+.step-card.is-used .drag-cue { color: #287a4e; }
+.step-card.is-used .drag-cue::after { content: " · sudah disusun"; }
+
+.sequence-area { position: absolute; right: 8%; bottom: 3.5%; left: 8%; text-align: center; }
+.sequence-heading { margin: 0 auto .45rem; color: #31567a; font-size: clamp(.95rem,1.4vw,1.15rem); font-weight: 900; }
+.sequence-slots { display: grid; width: min(100%,720px); grid-template-columns: minmax(0,1fr) 42px minmax(0,1fr); align-items: center; gap: clamp(8px,1.7vw,18px); margin: 0 auto; }
+.sequence-slot { position: relative; display: flex; min-width: 0; height: clamp(100px,17vh,132px); flex-direction: column; align-items: center; justify-content: center; gap: .15rem; overflow: hidden; padding: 10px 12px 8px; border: 3px dashed rgba(67,130,177,.57); border-radius: 26px; background: rgba(255,255,255,.74); color: #597792; cursor: pointer; font: inherit; transition: border-color .18s ease,background .18s ease,transform .18s ease; }
+.sequence-slot:hover,.sequence-slot:focus-visible,.sequence-slot.is-over,.sequence-slot.is-active { border-color: #ffbb3d; background: rgba(255,255,255,.96); outline: none; }
+.sequence-slot.is-over { transform: scale(1.025); }
+.sequence-slot.is-filled { border-style: solid; border-color: rgba(255,255,255,.95); background: linear-gradient(145deg,rgba(255,255,255,.94),#eaf7ff); box-shadow: 0 7px 0 rgba(74,139,203,.15); }
+.slot-number { position: absolute; top: 7px; left: 10px; display: grid; width: 29px; height: 29px; place-items: center; border: 2px solid white; border-radius: 50%; background: #68afe4; box-shadow: 0 2px 4px rgba(43,73,99,.15); color: white; font-size: .9rem; font-weight: 1000; }
+.slot-placeholder { color: #8196a8; font-size: clamp(.75rem,1vw,.92rem); font-weight: 800; }
+.slot-image { display: block; width: auto; height: 68%; max-width: 74%; object-fit: contain; border-radius: 9px; }
+.slot-caption { color: #31567a; font-size: clamp(.68rem,.9vw,.82rem); font-weight: 900; }
+.sequence-arrow { color: #e8a82d; font-size: 1.7rem; font-weight: 900; text-shadow: 0 2px 0 white; }
+.wash-feedback { position: absolute; right: 10%; bottom: 1%; left: 10%; min-height: 1.3em; margin: 0; color: #287a4e; font-size: clamp(.78rem,1.1vw,.95rem); font-weight: 900; text-align: center; }
+.wash-feedback.is-wrong { color: #bd643c; }
+.wash-feedback.is-correct { color: #278750; }
+.drag-ghost { position: fixed; z-index: 200; display: none; width: min(33vw,270px); height: min(33vh,230px); transform: translate(-50%,-50%); pointer-events: none; }
+.drag-ghost.is-visible { display: block; }
+.drag-ghost .step-card { width: 100%; height: 100%; cursor: grabbing; opacity: .92; transform: scale(.96); }
+.drag-ghost .drag-cue { display: none; }
+
+.wash-dialog { z-index: 30; }
+.wash-dialog .dialog-art-wrap { position: relative; z-index: 1; width: min(76vw,510px); aspect-ratio: 1; animation: wash-pop .34s cubic-bezier(.2,.8,.25,1.2) both; }
+.wash-dialog .dialog-art { display: block; width: 100%; height: 100%; object-fit: contain; }
+.wash-dialog .dialog-hotspot { top: 73%; left: 22%; width: 56%; height: 17%; }
+.answer-sparkles { position: absolute; z-index: 5; inset: 0; pointer-events: none; }
+.answer-sparkle { position: absolute; color: #ffd24e; font-size: 2rem; animation: wash-sparkle .8s ease-out both; }
+@keyframes wash-pop { from { opacity: 0; transform: scale(.75) translateY(18px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes wash-sparkle { 0% { opacity: 0; transform: scale(.2) rotate(-45deg); } 40% { opacity: 1; transform: scale(1.35) rotate(20deg); } 100% { opacity: 0; transform: scale(.6) rotate(75deg); } }
+
+@media (min-aspect-ratio:1/1) and (max-height:620px) {
+  .game-heading { top: 1vh; transform: translateX(-50%) scale(.82); transform-origin: top center; }
+  .wash-coach { top: 21%; height: 18%; }
+  .wash-instruction { top: 32%; right: 6%; left: 38%; }
+  .step-sources { top: 36%; left: 53%; width: min(35vw,380px); height: auto; }
+  .sequence-area { bottom: 3%; }
+  .sequence-slot { height: clamp(86px,15vh,105px); }
+}
+@media (max-width:700px),(orientation:portrait) {
+  .wash-heading { top: 3%; width: 78vw; }
+  .wash-heading h1 { font-size: clamp(26px,6vw,40px); }
+  .wash-coach { top: 19%; left: 3%; width: 46%; height: 18%; }
+  .wash-instruction { top: 36%; right: 6%; left: 6%; }
+  .step-sources { top: 42%; left: 50%; width: min(90vw,520px); height: auto; gap: 12px; }
+  .step-card { padding: 8px 7px; border-radius: 21px; }
+  .step-art { width: 100%; height: auto; }
+  .step-caption { font-size: clamp(.78rem,3vw,1rem); }
+  .drag-cue { font-size: .62rem; }
+  .sequence-area { right: 4%; bottom: 4%; left: 4%; }
+  .sequence-heading { font-size: .9rem; }
+  .sequence-slots { grid-template-columns: minmax(0,1fr) 24px minmax(0,1fr); gap: 7px; }
+  .sequence-slot { height: clamp(86px,14vh,118px); padding: 8px 5px; border-radius: 19px; }
+  .slot-number { top: 5px; left: 6px; width: 24px; height: 24px; font-size: .78rem; }
+  .slot-placeholder { font-size: .68rem; }
+  .slot-caption { font-size: .62rem; }
+  .sequence-arrow { font-size: 1.2rem; }
+  .wash-feedback { bottom: 1%; }
+}
+@media (max-height:470px) and (orientation:landscape) {
+  .game-heading { top: 1vh; transform: translateX(-50%) scale(.72); }
+  .wash-coach { top: 19%; height: 18%; }
+  .wash-instruction { top: 30%; right: 6%; left: 38%; }
+  .step-sources { top: 34%; left: 53%; width: min(35vw,360px); height: auto; }
+  .step-card { padding: 6px; }
+  .sequence-area { bottom: 2%; }
+  .sequence-slot { height: 78px; }
+  .sequence-heading { margin-bottom: .15rem; font-size: .85rem; }
+}
+@media (prefers-reduced-motion:reduce) { .step-card,.sequence-slot { transition:none; } }

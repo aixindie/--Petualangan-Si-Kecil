@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#9ccafa">
+    <title>Yuk Menghitung — Petualangan Si Kecil</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/misi2.css">
+</head>
+<body class="mission-select-page">
+    <main class="page mission-select-screen">
+        <img class="mission-select-background" src="asset/background/background.png" alt="" aria-hidden="true">
+
+        <button class="home-button" id="homeButton" type="button" aria-label="Kembali ke menu" title="Kembali ke menu">
+            <img src="asset/icon/homee.png" alt="">
+        </button>
+
+        <header class="mission-heading">
+            <h1>Yuk Menghitung!</h1>
+            <img class="mission-mascot" src="asset/dudu/dudu-misi2.png" alt="Dudu siap menghitung bersama">
+        </header>
+
+        <nav class="level-list" aria-label="Pilih level">
+            <button class="level-choice level-one" type="button" data-level="1" data-popup="asset/misi2/lv1-m2.png" data-destination="m2-lv1.html" aria-label="Buka level 1, Aku Mulai">
+                <span class="level-art"><img src="asset/icon/lv1.png" alt=""></span>
+            </button>
+            <button class="level-choice level-two" type="button" data-level="2" data-popup="asset/misi2/lv2-m2.png" data-destination="m2-lv2.html" aria-label="Buka level 2, Aku Mencoba">
+                <span class="level-art"><img src="asset/icon/lv2.png" alt=""></span>
+            </button>
+            <button class="level-choice level-three" type="button" data-level="3" data-popup="asset/misi2/lv3-m2.png" data-destination="m2-lv3.html" aria-label="Buka level 3, Aku Menjelajah">
+                <span class="level-art"><img src="asset/icon/lv3.png" alt=""></span>
+            </button>
+        </nav>
+
+        <dialog class="level-dialog" id="levelDialog" aria-labelledby="levelDialogTitle">
+            <h2 class="visually-hidden" id="levelDialogTitle">Pratinjau level</h2>
+            <img class="level-dialog-art" id="levelDialogArt" src="" alt="">
+            <button class="level-start-hotspot" id="levelStart" type="button" aria-label="Mulai level"></button>
+            <button class="level-dialog-close" id="levelDialogClose" type="button" aria-label="Tutup pratinjau">×</button>
+        </dialog>
+    </main>
+    <script src="js/misi2.js" defer></script>
+</body>
+</html>

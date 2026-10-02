@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#9ccafa">
+    <title>Aku Mencoba — Level 2</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/m1-lv2.css">
+</head>
+<body class="fruit-game-page">
+    <main class="page fruit-game-screen">
+        <img class="game-background" src="asset/background/background.png" alt="" aria-hidden="true">
+        <div class="sky-sparkle sparkle-one" aria-hidden="true">✦</div>
+        <div class="sky-sparkle sparkle-two" aria-hidden="true">✦</div>
+        <div class="sky-sparkle sparkle-three" aria-hidden="true">✧</div>
+
+        <button class="home-button" id="homeButton" type="button" aria-label="Kembali ke pilihan level" title="Kembali ke pilihan level">
+            <img src="asset/icon/homee.png" alt="">
+        </button>
+
+        <div class="level-progress" aria-label="Level 2 dari 3">
+            <span class="progress-star" aria-hidden="true">★</span>
+            <span>LEVEL 2</span>
+            <span class="progress-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+
+        <header class="game-heading">
+            <p class="heading-kicker">Petualangan mengenal bentuk</p>
+            <h1>Aku Mencoba</h1>
+            <p class="heading-subtitle">Mencocokkan bentuk benda</p>
+        </header>
+
+        <section class="dudu-coach" aria-label="Pesan dari Dudu">
+            <img class="coach-mascot" id="dudu" src="asset/dudu/dudu-misi1.png" alt="Dudu memegang kaca pembesar">
+            <div class="speech-bubble" id="duduBubble" aria-hidden="true">
+                <span class="bubble-sparkle" aria-hidden="true">✦</span>
+                <p id="duduText">Wah, Dudu menemukan jam dinding! Bentuk jam ini apa, ya? Yuk pilih bentuk yang sama!</p>
+            </div>
+        </section>
+
+        <figure class="shape-target">
+            <span class="target-label">Benda yang diamati</span>
+            <img src="asset/misi1/jam.png" alt="Jam dinding berbentuk lingkaran">
+            <figcaption>Jam dinding</figcaption>
+        </figure>
+
+        <section class="question-area" aria-labelledby="questionTitle">
+            <div class="question-label"><span aria-hidden="true">🔎</span> Misi kecil Dudu</div>
+            <h2 id="questionTitle">Pilih bentuk yang sama dengan <span>jam dinding!</span></h2>
+            <div class="fruit-options" role="group" aria-label="Pilih bentuk yang sama dengan jam">
+                <button class="fruit-option shape-circle" type="button" data-answer="lingkaran" aria-label="Lingkaran">
+                    <span class="choice-number">1</span>
+                    <span class="fruit-image"><img src="asset/misi1/lingkaran.png" alt=""></span>
+                    <span class="fruit-name">Lingkaran</span>
+                </button>
+                <button class="fruit-option shape-square" type="button" data-answer="persegi" aria-label="Persegi">
+                    <span class="choice-number">2</span>
+                    <span class="fruit-image"><img src="asset/misi1/persegi.png" alt=""></span>
+                    <span class="fruit-name">Persegi</span>
+                </button>
+                <button class="fruit-option shape-triangle" type="button" data-answer="segitiga" aria-label="Segitiga">
+                    <span class="choice-number">3</span>
+                    <span class="fruit-image"><img src="asset/misi1/segitiga.png" alt=""></span>
+                    <span class="fruit-name">Segitiga</span>
+                </button>
+            </div>
+        </section>
+
+        <div class="answer-feedback" id="feedback" role="status" aria-live="polite"></div>
+        <div class="star-burst" id="starEffect" aria-hidden="true">⭐ ✨ ⭐</div>
+
+        <dialog class="art-dialog" id="feedbackDialog" aria-label="Pesan permainan">
+            <img class="dialog-art" id="dialogArt" src="" alt="">
+            <button class="dialog-hotspot" id="dialogAction" type="button" aria-label="Lanjutkan"></button>
+        </dialog>
+    </main>
+    <script src="js/m1-lv2.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a9d7ff">
+  <title>Misi 2 — Pilih Keranjang Banyak</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/m2-lv2.css">
+</head>
+<body class="fruit-game-page basket-game-page">
+  <main class="page fruit-game-screen basket-game-screen">
+    <img class="game-background" src="asset/background/background.png" alt="" aria-hidden="true">
+    <a class="home-button" href="misi2.html" aria-label="Kembali ke menu Misi 2">
+      <img src="asset/icon/homee.png" alt="">
+    </a>
+    <div class="level-progress" aria-label="Misi 2, level 2">
+      <span aria-hidden="true">★</span><span>LEVEL 2</span><i></i><i></i><i></i>
+    </div>
+
+    <header class="game-heading">
+      <p class="heading-kicker">PETUALANGAN BERHITUNG</p>
+      <h1>Pilih Keranjang Banyak</h1>
+      <p class="heading-subtitle">Membandingkan jumlah</p>
+    </header>
+
+    <section class="dudu-coach basket-coach" aria-label="Petunjuk Dudu">
+      <img class="coach-mascot" src="asset/dudu/dudu-misi2.png" alt="Dudu">
+      <div class="speech-bubble" id="dudu-bubble" aria-hidden="true">
+        <span id="dudu-text"></span><b class="bubble-sparkle" aria-hidden="true">✦</b>
+      </div>
+    </section>
+
+    <section class="question-area basket-question" aria-labelledby="question-title">
+      <p class="question-label">🔎 MISI KECIL DUDU</p>
+      <h2 id="question-title">Keranjang mana yang berisi <em>lebih banyak</em> batu?</h2>
+      <p class="basket-instruction">Ketuk keranjang dengan batu paling banyak!</p>
+
+      <div class="basket-options" role="group" aria-label="Pilih jumlah batu">
+        <button class="basket-choice basket-choice-three" type="button" data-count="3" aria-label="Pilih keranjang berisi 3 batu">
+          <span class="basket-choice-number">A</span>
+          <span class="basket-choice-art"><img src="asset/misi2/3-batu.png" alt="Tiga batu berwarna-warni"></span>
+          <span class="basket-choice-caption">3 batu</span>
+          <span class="basket-choice-hint">Sedikit</span>
+        </button>
+        <span class="versus-badge" aria-hidden="true">VS</span>
+        <button class="basket-choice basket-choice-five" type="button" data-count="5" aria-label="Pilih keranjang berisi 5 batu">
+          <span class="basket-choice-number">B</span>
+          <span class="basket-choice-art"><img src="asset/misi2/5-batu.png" alt="Lima batu berwarna-warni"></span>
+          <span class="basket-choice-caption">5 batu</span>
+          <span class="basket-choice-hint">Lebih banyak?</span>
+        </button>
+      </div>
+      <p class="answer-feedback" id="answer-feedback" role="status" aria-live="polite"></p>
+    </section>
+
+    <dialog class="art-dialog" id="result-dialog" aria-label="Pesan permainan">
+      <div class="dialog-art-wrap">
+        <img class="dialog-art" id="dialog-art" src="asset/icon/lanjut-lv2.png" alt="">
+        <button class="dialog-hotspot" id="dialog-action" type="button" aria-label="Lanjut"></button>
+      </div>
+    </dialog>
+    <div class="answer-sparkles" id="answer-sparkles" aria-hidden="true"></div>
+  </main>
+  <script src="js/m2-lv2.js" defer></script>
+</body>
+</html>

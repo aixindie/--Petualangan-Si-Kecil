@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#9ccafa">
+    <title>Petik Buah di Pohon — Level 1</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/m2-lv1.css">
+</head>
+<body class="fruit-game-page m2-level-page">
+    <main class="page fruit-game-screen m2-level-screen">
+        <img class="game-background" src="asset/background/background.png" alt="" aria-hidden="true">
+        <div class="m2-glow glow-left" aria-hidden="true"></div>
+        <div class="m2-glow glow-right" aria-hidden="true"></div>
+
+        <button class="home-button" id="homeButton" type="button" aria-label="Kembali ke pilihan misi" title="Kembali ke pilihan misi">
+            <img src="asset/icon/homee.png" alt="">
+        </button>
+
+        <div class="level-progress" aria-label="Misi menghitung, level 1 dari 3">
+            <span class="progress-star" aria-hidden="true">★</span>
+            <span>LEVEL 1</span>
+            <span class="progress-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+
+        <header class="game-heading">
+            <p class="heading-kicker">Petualangan berhitung</p>
+            <h1>Petik Buah di Pohon</h1>
+            <p class="heading-subtitle">Yuk, hitung apel bersama Dudu!</p>
+        </header>
+
+        <section class="dudu-coach m2-coach" aria-label="Pesan dari Dudu">
+            <img class="coach-mascot" id="dudu" src="asset/dudu/dudu-misi2.png" alt="Dudu siap memetik dan menghitung apel">
+            <div class="speech-bubble is-visible" id="duduBubble" aria-hidden="false">
+                <span class="bubble-sparkle" aria-hidden="true">✦</span>
+                <p id="duduText">Halo, teman-teman! Yuk, bantu Dudu memetik apel. Ayo hitung dari satu sampai tujuh!</p>
+            </div>
+        </section>
+
+        <section class="tree-play-area" aria-label="Pohon apel">
+            <img class="tree-image" src="asset/misi2/pohon.png" alt="Pohon dengan tujuh apel merah">
+            <button class="tree-apple apple-one" type="button" data-number="1" aria-label="Petik apel pertama">🍎</button>
+            <button class="tree-apple apple-two" type="button" data-number="2" aria-label="Petik apel kedua">🍎</button>
+            <button class="tree-apple apple-three" type="button" data-number="3" aria-label="Petik apel ketiga">🍎</button>
+            <button class="tree-apple apple-four" type="button" data-number="4" aria-label="Petik apel keempat">🍎</button>
+            <button class="tree-apple apple-five" type="button" data-number="5" aria-label="Petik apel kelima">🍎</button>
+            <button class="tree-apple apple-six" type="button" data-number="6" aria-label="Petik apel keenam">🍎</button>
+            <button class="tree-apple apple-seven" type="button" data-number="7" aria-label="Petik apel ketujuh">🍎</button>
+            <span class="tree-ground" aria-hidden="true"></span>
+        </section>
+
+        <section class="basket-play-area" id="basketArea" aria-label="Keranjang apel">
+            <p class="basket-title">Keranjang Dudu</p>
+            <img class="basket-image" src="asset/misi2/keranjang.png" alt="Keranjang untuk menampung apel">
+            <div class="basket-apples" id="basketApples" aria-live="polite"></div>
+        </section>
+
+        <section class="apple-counter" aria-live="polite" aria-label="Jumlah apel yang dipetik">
+            <div class="counter-title"><span aria-hidden="true">🍎</span> Apel terkumpul</div>
+            <div class="counter-value"><strong id="appleCount">0</strong><span> / 7 apel</span></div>
+            <div class="apple-progress" aria-hidden="true"><i id="appleProgress"></i></div>
+        </section>
+
+        <div class="answer-feedback" id="m2Feedback" role="status" aria-live="polite"></div>
+        <div class="star-burst" id="m2Stars" aria-hidden="true">⭐ ✨ ⭐</div>
+
+        <dialog class="art-dialog" id="levelDialog" aria-label="Level selesai">
+            <img class="dialog-art" id="dialogArt" src="" alt="">
+            <button class="dialog-hotspot" id="dialogAction" type="button" aria-label="Lanjutkan"></button>
+        </dialog>
+    </main>
+    <script src="js/m2-lv1.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#9ccafa">
+  <title>Misi 2 — Absen Teman</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/m2-lv3.css">
+</head>
+<body class="fruit-game-page attendance-page">
+  <main class="page fruit-game-screen attendance-screen">
+    <img class="game-background" src="asset/background/background.png" alt="" aria-hidden="true">
+    <div class="sky-sparkle sparkle-one" aria-hidden="true">✦</div>
+    <div class="sky-sparkle sparkle-two" aria-hidden="true">✦</div>
+    <div class="sky-sparkle sparkle-three" aria-hidden="true">✧</div>
+
+    <a class="home-button" href="misi2.html" aria-label="Kembali ke menu Misi 2">
+      <img src="asset/icon/homee.png" alt="">
+    </a>
+    <div class="level-progress" aria-label="Misi 2, level 3">
+      <span class="progress-star" aria-hidden="true">★</span>
+      <span>LEVEL 3</span>
+      <span class="progress-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+
+    <header class="game-heading attendance-heading">
+      <p class="heading-kicker">PETUALANGAN BERHITUNG</p>
+      <h1>Absen Teman</h1>
+      <p class="heading-subtitle">Menghitung jumlah teman</p>
+    </header>
+
+    <section class="dudu-coach attendance-coach" aria-label="Petunjuk Dudu">
+      <img class="coach-mascot" src="asset/dudu/dudu-misi2.png" alt="Dudu mengajak menghitung">
+      <div class="speech-bubble" id="dudu-bubble" aria-hidden="true">
+        <span id="dudu-text"></span>
+        <b class="bubble-sparkle" aria-hidden="true">✦</b>
+      </div>
+    </section>
+
+    <figure class="attendance-photo-card">
+      <div class="photo-ribbon"><span aria-hidden="true">🏫</span> Papan Kehadiran</div>
+      <img class="attendance-photo" src="asset/misi2/siswa.jpg" alt="Papan kehadiran sekolah dengan sepuluh wajah teman yang hadir">
+      <figcaption>Yuk, hitung wajah teman yang hadir!</figcaption>
+    </figure>
+
+    <section class="question-area attendance-question" aria-labelledby="question-title">
+      <p class="question-label">🔎 MISI KECIL DUDU</p>
+      <h2 id="question-title">Ada berapa teman yang hadir hari ini?</h2>
+      <div class="number-options" role="group" aria-label="Pilih jumlah teman yang hadir">
+        <button class="number-choice number-choice-five" type="button" data-answer="5" aria-label="5 teman">
+          <span class="choice-index">1</span><strong>5</strong><span class="choice-unit">teman</span>
+        </button>
+        <button class="number-choice number-choice-eight" type="button" data-answer="8" aria-label="8 teman">
+          <span class="choice-index">2</span><strong>8</strong><span class="choice-unit">teman</span>
+        </button>
+        <button class="number-choice number-choice-ten" type="button" data-answer="10" aria-label="10 teman">
+          <span class="choice-index">3</span><strong>10</strong><span class="choice-unit">teman</span>
+        </button>
+      </div>
+      <p class="answer-feedback attendance-feedback" id="answer-feedback" role="status" aria-live="polite"></p>
+    </section>
+
+    <dialog class="art-dialog attendance-dialog" id="result-dialog" aria-label="Hasil permainan">
+      <div class="dialog-art-wrap">
+        <img class="dialog-art" id="dialog-art" src="asset/icon/lanjut-lv3.png" alt="">
+        <button class="dialog-hotspot" id="dialog-action" type="button" aria-label="Kembali ke Misi 2"></button>
+      </div>
+    </dialog>
+    <div class="answer-sparkles" id="answer-sparkles" aria-hidden="true"></div>
+  </main>
+  <script src="js/m2-lv3.js" defer></script>
+</body>
+</html>

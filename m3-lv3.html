@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#9ccafa">
+  <title>Jalan Dudu — Level 3</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/m1-lv1.css">
+  <link rel="stylesheet" href="css/m3-lv3.css">
+</head>
+<body class="fruit-game-page trace-game-page">
+  <main class="page fruit-game-screen trace-screen">
+    <img class="game-background" src="asset/background/background.png" alt="" aria-hidden="true">
+    <div class="sky-sparkle sparkle-one" aria-hidden="true">✦</div>
+    <div class="sky-sparkle sparkle-two" aria-hidden="true">✦</div>
+    <div class="sky-sparkle sparkle-three" aria-hidden="true">✧</div>
+
+    <a class="home-button" href="menu.html" aria-label="Kembali ke menu utama">
+      <img src="asset/icon/homee.png" alt="">
+    </a>
+    <div class="level-progress" aria-label="Misi 3, level 3">
+      <span class="progress-star" aria-hidden="true">★</span><span>LEVEL 3</span>
+      <span class="progress-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+
+    <header class="game-heading trace-heading">
+      <p class="heading-kicker">MISI 3 · AKU MENJELAJAH</p>
+      <h1>Jalan Dudu</h1>
+      <p class="heading-subtitle">Yuk, tebalkan jalannya sampai ke rak!</p>
+    </header>
+
+    <aside class="trace-side" aria-label="Petunjuk dan kemajuan">
+      <section class="trace-coach" aria-label="Pesan dari Dudu">
+        <img class="coach-mascot" id="trace-mascot" src="asset/dudu/dudu-misi3.png" alt="Dudu siap membantu">
+        <div class="speech-bubble is-visible" id="trace-bubble" aria-live="polite">
+          <span class="bubble-sparkle" aria-hidden="true">✦</span>
+          <p id="trace-message">Yuk, tebalkan garis putus-putus dari Dudu sampai rak mainan. Ikuti jalurnya pelan-pelan!</p>
+        </div>
+      </section>
+      <section class="trace-progress-card" aria-label="Kemajuan menebalkan jalan">
+        <div class="trace-progress-title"><span aria-hidden="true">✏️</span> Tebalkan jalannya!</div>
+        <div class="trace-progress-track" aria-hidden="true"><span id="trace-progress-fill"></span></div>
+        <p id="trace-progress-label" role="status" aria-live="polite">Mulai dari Dudu</p>
+      </section>
+    </aside>
+
+    <section class="classroom-card" aria-label="Jalur dari Dudu menuju rak mainan">
+      <img class="classroom-photo" src="asset/misi3/jalur-kelas.jpg" alt="Suasana kelas dan rak tempat Dudu akan menuju">
+      <div class="photo-tint" aria-hidden="true"></div>
+      <img class="trace-dudu" src="asset/dudu/dudu-misi3.png" alt="" aria-hidden="true">
+      <div class="trace-goal" aria-hidden="true">🏆</div>
+      <svg class="trace-svg" id="trace-svg" viewBox="0 0 1000 600" preserveAspectRatio="none" tabindex="0" role="application" aria-label="Tarik jari atau mouse mengikuti garis putus-putus dari Dudu sampai rak">
+        <path class="trace-guide-shadow" d="M 145 520 L 405 520 L 405 465 L 485 465 L 485 415 L 545 415 L 545 375"></path>
+        <path class="trace-guide" id="trace-guide" d="M 145 520 L 405 520 L 405 465 L 485 465 L 485 415 L 545 415 L 545 375"></path>
+        <path class="trace-progress" id="trace-progress" d="M 145 520 L 405 520 L 405 465 L 485 465 L 485 415 L 545 415 L 545 375"></path>
+        <circle class="trace-start-ring" cx="145" cy="520" r="22" aria-hidden="true"></circle>
+        <circle class="trace-start-dot" cx="145" cy="520" r="8" aria-hidden="true"></circle>
+        <circle class="trace-end-ring" cx="545" cy="375" r="20" aria-hidden="true"></circle>
+      </svg>
+      <div class="trace-hint-chip" aria-hidden="true">Ikuti garisnya sampai ujung ✨</div>
+    </section>
+
+    <dialog class="art-dialog trace-dialog" id="trace-dialog" aria-label="Selamat, jalur selesai">
+      <img class="dialog-art" id="trace-dialog-art" src="asset/icon/lanjut-lv3.png" alt="Keren! Kamu berhasil menebalkan jalannya. Tekan lanjut untuk kembali ke menu.">
+      <button class="dialog-hotspot" id="trace-dialog-action" type="button" aria-label="Lanjut ke menu utama"></button>
+    </dialog>
+  </main>
+  <script src="js/m3-lv3.js" defer></script>
+</body>
+</html>

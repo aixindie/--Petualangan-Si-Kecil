@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#89c9f5">
+    <title>Pilih Petualangan — Petualangan Si Kecil</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<body class="menu-page">
+    <main class="page menu-screen">
+        <img class="menu-background" src="asset/background/background-menu.png" alt="" aria-hidden="true">
+
+        <button class="back-button" id="backButton" type="button" aria-label="Kembali" title="Kembali">
+            <img src="asset/icon/back.png" alt="">
+        </button>
+
+        <header class="menu-heading">
+            <img class="menu-logo" src="asset/icon/Petualangan-Si-Kecil.png" alt="Petualangan Si Kecil">
+            <p class="menu-subtitle"><span aria-hidden="true">✦</span> Pilih misi seru bersama Dudu! <span aria-hidden="true">✦</span></p>
+        </header>
+
+        <nav class="mission-list" aria-label="Pilih misi">
+            <a class="mission-choice mission-find" href="misi1.html" data-level-art="asset/misi1/lv1-m1.png" aria-label="Lihat level Yuk Menemukan">
+                <span class="mission-art"><img src="asset/dudu/dudu-m1.png" alt="Dudu mengamati dengan kaca pembesar"></span>
+            </a>
+
+            <a class="mission-choice mission-count" href="misi2.html" data-level-art="asset/misi2/lv1-m2.png" aria-label="Lihat level Yuk Menghitung">
+                <span class="mission-art"><img src="asset/dudu/dudu-m2.png" alt="Dudu siap belajar dan berhitung"></span>
+            </a>
+
+            <a class="mission-choice mission-explore" href="misi3.html" data-level-art="asset/misi3/lv1-m3.png" aria-label="Lihat level Yuk Menyusun">
+                <span class="mission-art"><img src="asset/dudu/dudu-m3.png" alt="Dudu menunjukkan arah petualangan"></span>
+            </a>
+        </nav>
+
+
+        <dialog class="exit-dialog" id="exitDialog" aria-labelledby="exitTitle" aria-describedby="exitDescription">
+            <form method="dialog" class="exit-panel">
+                <img class="exit-mascot" src="asset/dudu-buku.png" alt="">
+                <p class="exit-eyebrow">Sebentar, Petualang!</p>
+                <h2 id="exitTitle">Yakin mau keluar?</h2>
+                <p class="exit-description" id="exitDescription">Dudu masih punya banyak petualangan seru untukmu.</p>
+                <div class="exit-actions">
+                    <button class="exit-no" id="stayButton" type="button">Tidak, lanjut bermain</button>
+                    <button class="exit-yes" id="confirmExit" type="button">Ya, keluar</button>
+                </div>
+                <p class="exit-note" id="exitNote" role="status" aria-live="polite" hidden></p>
+            </form>
+        </dialog>
+    </main>
+    <script src="js/menu.js" defer></script>
+</body>
+</html>

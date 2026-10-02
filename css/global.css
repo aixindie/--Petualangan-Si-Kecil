@@ -1,0 +1,59 @@
+/* Ukuran area game selalu mengikuti ukuran viewport perangkat.
+   Tidak ada rasio tetap: layar 16:9, 4:3, dan ukuran lain akan menyesuaikan. */
+:root {
+    --screen-width: 100vw;
+    --screen-height: 100dvh;
+    --loading-ink: #fffdf5;
+    --loading-blue: #3477d4;
+    --loading-yellow: #ffd64d;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.page {
+    position: relative;
+    width: var(--screen-width);
+    height: var(--screen-height);
+    min-height: 0;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+}
+
+@media (orientation: landscape) {
+    :root {
+        --screen-width: 100vw;
+        --screen-height: 100dvh;
+    }
+}
+
+@media (orientation: portrait) {
+    :root {
+        --screen-width: 100vw;
+        --screen-height: 100dvh;
+    }
+}

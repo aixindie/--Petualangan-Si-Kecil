@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#9ccafa">
+    <title>Aku Menemukan — Level 1</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/m1-lv1.css">
+</head>
+<body class="fruit-game-page">
+    <main class="page fruit-game-screen">
+        <img class="game-background" src="asset/background/background.png" alt="" aria-hidden="true">
+        <div class="sky-sparkle sparkle-one" aria-hidden="true">✦</div>
+        <div class="sky-sparkle sparkle-two" aria-hidden="true">✦</div>
+        <div class="sky-sparkle sparkle-three" aria-hidden="true">✧</div>
+
+        <button class="home-button" id="homeButton" type="button" aria-label="Kembali ke pilihan level" title="Kembali ke pilihan level">
+            <img src="asset/icon/homee.png" alt="">
+        </button>
+
+        <div class="level-progress" aria-label="Level 1 dari 3">
+            <span class="progress-star" aria-hidden="true">★</span>
+            <span>LEVEL 1</span>
+            <span class="progress-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+
+        <header class="game-heading">
+            <p class="heading-kicker">Petualangan mencari warna</p>
+            <h1>Aku Menemukan</h1>
+            <p class="heading-subtitle">Mengenali warna &amp; bentuk</p>
+        </header>
+
+        <section class="dudu-coach" aria-label="Pesan dari Dudu">
+            <img class="coach-mascot" id="dudu" src="asset/dudu/dudu-misi1.png" alt="Dudu memegang kaca pembesar">
+            <div class="speech-bubble" id="duduBubble" aria-hidden="true">
+                <span class="bubble-sparkle" aria-hidden="true">✦</span>
+                <p id="duduText">Halo, teman-teman! Yuk, bantu Dudu menemukan buah yang berwarna merah!</p>
+            </div>
+        </section>
+
+        <section class="question-area" aria-labelledby="questionTitle">
+            <div class="question-label"><span aria-hidden="true">🔎</span> Misi kecil Dudu</div>
+            <h2 id="questionTitle">Buah mana yang berwarna <span>merah</span> dan berbentuk segitiga?</h2>
+            <div class="fruit-options" role="group" aria-label="Pilih buah yang berwarna merah">
+                <button class="fruit-option fruit-banana" type="button" data-answer="pisang" aria-label="Pisang">
+                    <span class="choice-number">1</span>
+                    <span class="fruit-image"><img src="asset/misi1/pisang.png" alt=""></span>
+                    <span class="fruit-name">Pisang</span>
+                </button>
+                <button class="fruit-option fruit-grapes" type="button" data-answer="anggur" aria-label="Anggur">
+                    <span class="choice-number">2</span>
+                    <span class="fruit-image"><img src="asset/misi1/anggur.png" alt=""></span>
+                    <span class="fruit-name">Anggur</span>
+                </button>
+                <button class="fruit-option fruit-watermelon" type="button" data-answer="semangka" aria-label="Semangka">
+                    <span class="choice-number">3</span>
+                    <span class="fruit-image"><img src="asset/misi1/semangka.png" alt=""></span>
+                    <span class="fruit-name">Semangka</span>
+                </button>
+            </div>
+        </section>
+
+        <div class="answer-feedback" id="feedback" role="status" aria-live="polite"></div>
+        <div class="star-burst" id="starEffect" aria-hidden="true">⭐ ✨ ⭐</div>
+
+        <dialog class="art-dialog" id="feedbackDialog" aria-label="Pesan permainan">
+            <img class="dialog-art" id="dialogArt" src="" alt="">
+            <button class="dialog-hotspot" id="dialogAction" type="button" aria-label="Lanjutkan"></button>
+            <button class="dialog-dismiss" id="dialogDismiss" type="button" aria-label="Tutup" hidden>×</button>
+        </dialog>
+    </main>
+    <script src="js/m1-lv1.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#9ccafa">
+  <title>Misi 3 — Urutan Mencuci Tangan</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/m3-lv1.css">
+</head>
+<body class="fruit-game-page wash-game-page">
+  <main class="page fruit-game-screen wash-game-screen">
+    <img class="game-background" src="asset/background/background.png" alt="" aria-hidden="true">
+    <div class="sky-sparkle sparkle-one" aria-hidden="true">✦</div>
+    <div class="sky-sparkle sparkle-two" aria-hidden="true">✦</div>
+    <div class="sky-sparkle sparkle-three" aria-hidden="true">✧</div>
+
+    <a class="home-button" href="misi3.html" aria-label="Kembali ke menu Misi 3">
+      <img src="asset/icon/homee.png" alt="">
+    </a>
+    <div class="level-progress" aria-label="Misi 3, level 1">
+      <span class="progress-star" aria-hidden="true">★</span><span>LEVEL 1</span>
+      <span class="progress-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+
+    <header class="game-heading wash-heading">
+      <p class="heading-kicker">MISI 3 · AKU MULAI</p>
+      <h1>Urutan Mencuci Tangan</h1>
+      <p class="heading-subtitle">Yuk, belajar menjaga kebersihan!</p>
+    </header>
+
+    <section class="dudu-coach wash-coach" aria-label="Petunjuk Dudu">
+      <img class="coach-mascot" src="asset/dudu/dudu-misi3.png" alt="Dudu mengajak belajar">
+      <div class="speech-bubble" id="dudu-bubble" aria-hidden="true">
+        <span id="dudu-text"></span><b class="bubble-sparkle" aria-hidden="true">✦</b>
+      </div>
+    </section>
+
+    <p class="wash-instruction" id="wash-instruction">Tarik gambar ke kotak bernomor sesuai urutan mencuci tangan.</p>
+
+    <section class="step-sources" aria-label="Pilih gambar langkah mencuci tangan">
+      <button class="step-card step-rinse" type="button" data-step="rinse" aria-label="Bilas tangan">
+        <span class="step-art"><img src="asset/misi3/bilas.png" alt="Anak membilas tangan dengan air"></span>
+        <span class="step-caption"><i>💧</i> Bilas tangan</span>
+        <span class="drag-cue">Pilih atau tarik</span>
+      </button>
+      <button class="step-card step-soap" type="button" data-step="soap" aria-label="Pakai sabun">
+        <span class="step-art"><img src="asset/misi3/sabun.png" alt="Anak menggosok tangan dengan sabun"></span>
+        <span class="step-caption"><i>🫧</i> Pakai sabun</span>
+        <span class="drag-cue">Pilih atau tarik</span>
+      </button>
+    </section>
+
+    <section class="sequence-area" aria-label="Susun langkah mencuci tangan">
+      <p class="sequence-heading">Susun langkahnya di sini</p>
+      <div class="sequence-slots">
+        <button class="sequence-slot" type="button" data-slot="1" aria-label="Kotak nomor 1, langkah pertama">
+          <span class="slot-number">1</span>
+          <span class="slot-placeholder">Langkah pertama</span>
+          <img class="slot-image" alt="" hidden>
+          <span class="slot-caption" hidden></span>
+        </button>
+        <span class="sequence-arrow" aria-hidden="true">➜</span>
+        <button class="sequence-slot" type="button" data-slot="2" aria-label="Kotak nomor 2, langkah kedua">
+          <span class="slot-number">2</span>
+          <span class="slot-placeholder">Langkah kedua</span>
+          <img class="slot-image" alt="" hidden>
+          <span class="slot-caption" hidden></span>
+        </button>
+      </div>
+    </section>
+
+    <p class="answer-feedback wash-feedback" id="answer-feedback" role="status" aria-live="polite"></p>
+
+    <dialog class="art-dialog wash-dialog" id="result-dialog" aria-label="Hasil permainan">
+      <div class="dialog-art-wrap">
+        <img class="dialog-art" id="dialog-art" src="asset/icon/lanjut-lv1.png" alt="">
+        <button class="dialog-hotspot" id="dialog-action" type="button" aria-label="Lanjut"></button>
+      </div>
+    </dialog>
+    <div class="answer-sparkles" id="answer-sparkles" aria-hidden="true"></div>
+    <div class="drag-ghost" id="drag-ghost" aria-hidden="true"></div>
+  </main>
+  <script src="js/m3-lv1.js" defer></script>
+</body>
+</html>

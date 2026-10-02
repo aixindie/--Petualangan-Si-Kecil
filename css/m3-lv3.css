@@ -1,0 +1,88 @@
+ .trace-screen { overflow: hidden; }
+.trace-heading { top: clamp(10px,2.2vh,24px); z-index: 4; }
+.trace-heading .heading-kicker { margin-bottom: .1em; }
+.trace-heading h1 { font-size: clamp(27px,3.7vw,46px); }
+.trace-heading .heading-subtitle { margin-top: .28em; }
+
+.trace-side { position: absolute; z-index: 3; top: 23%; left: 3%; width: 21%; height: 72%; }
+.trace-coach { display: flex; height: 54%; flex-direction: column; align-items: center; gap: 7px; }
+.trace-coach .coach-mascot { width: clamp(72px,11vh,118px); height: 48%; flex: 0 0 48%; }
+.trace-coach .speech-bubble { width: 100%; min-height: 42%; flex: 0 0 auto; padding: .75em .9em; border-radius: 22px; }
+.trace-coach .speech-bubble::before { top: -12px; left: calc(50% - 10px); border: 0; border-top: 3px solid white; border-left: 3px solid white; background: #fff; }
+.trace-coach .speech-bubble p { font-size: clamp(11px,1.1vw,15px); line-height: 1.35; }
+
+.trace-progress-card { position: absolute; right: 0; bottom: 2%; left: 0; padding: clamp(12px,2vh,20px); border: 3px solid rgba(255,255,255,.95); border-radius: 24px; background: linear-gradient(145deg,rgba(255,255,255,.96),rgba(241,249,255,.91)); box-shadow: 0 9px 20px rgba(47,88,128,.18); color: #31567a; text-align: center; }
+.trace-progress-title { margin-bottom: 10px; color: #2f5c88; font-size: clamp(13px,1.25vw,17px); font-weight: 1000; }
+.trace-progress-track { height: 13px; overflow: hidden; border: 2px solid white; border-radius: 999px; background: #dbe9ef; box-shadow: inset 0 1px 3px rgba(36,69,94,.13); }
+.trace-progress-track span { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg,#6bd270,#ffd244); transition: width .12s linear; }
+.trace-progress-card p { margin: 8px 0 0; color: #567896; font-size: clamp(11px,1vw,14px); font-weight: 900; }
+
+.classroom-card { position: absolute; top: 22%; left: 26%; width: 70%; height: 73%; overflow: hidden; border: 4px solid rgba(255,255,255,.94); border-radius: 28px; background: #d5e5ed; box-shadow: 0 15px 30px rgba(36,77,117,.2); }
+.classroom-photo,.photo-tint { position: absolute; inset: 0; width: 100%; height: 100%; }
+.classroom-photo { object-fit: cover; object-position: center 58%; }
+.photo-tint { background: linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02) 65%,rgba(20,46,68,.08)); pointer-events: none; }
+.trace-svg { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; overflow: visible; cursor: crosshair; touch-action: none; user-select: none; }
+.trace-svg:focus-visible { outline: 4px solid #ffe17a; outline-offset: -7px; }
+.trace-guide-shadow,.trace-guide,.trace-progress { fill: none; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.trace-guide-shadow { stroke: rgba(255,255,255,.86); stroke-width: 20; }
+.trace-guide { stroke: #364450; stroke-width: 12; stroke-dasharray: 1 23; opacity: .95; }
+.trace-progress { stroke: #ffcf3d; stroke-width: 13; stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 2px 1px rgba(88,73,26,.4)); }
+.trace-start-ring,.trace-end-ring { fill: rgba(255,255,255,.22); stroke: #fff; stroke-width: 5; animation: trace-pulse 1.7s ease-out infinite; pointer-events: none; }
+.trace-start-dot { fill: #ffca42; stroke: white; stroke-width: 4; pointer-events: none; }
+.trace-end-ring { fill: rgba(255,205,61,.35); stroke: #ffd149; }
+.trace-dudu { position: absolute; z-index: 3; left: 7%; bottom: 2%; width: clamp(58px,8vw,110px); height: 22%; object-fit: contain; filter: drop-shadow(0 5px 4px rgba(38,54,67,.25)); pointer-events: none; }
+.trace-goal { position: absolute; z-index: 3; top: 62.5%; left: 54.5%; display: grid; width: clamp(34px,5vw,58px); aspect-ratio: 1; place-items: center; border: 3px solid white; border-radius: 50%; background: #ffcf47; box-shadow: 0 4px 9px rgba(45,65,77,.3); font-size: clamp(20px,3vw,34px); transform: translate(-50%,-50%); pointer-events: none; }
+.trace-hint-chip { position: absolute; z-index: 4; top: 4%; left: 50%; padding: .45em 1em; border: 2px solid white; border-radius: 999px; background: rgba(255,250,225,.94); box-shadow: 0 3px 8px rgba(36,67,94,.16); color: #775822; font-size: clamp(11px,1.1vw,14px); font-weight: 900; transform: translateX(-50%); pointer-events: none; }
+.trace-dialog { z-index: 30; }
+.trace-dialog .dialog-hotspot { top: 73%; left: 22%; width: 56%; height: 17%; }
+
+@keyframes trace-pulse { 0% { opacity: .95; transform: scale(.8); } 75%,100% { opacity: 0; transform: scale(1.55); } }
+
+@media (min-aspect-ratio:1/1) and (max-height:620px) {
+  .trace-heading { top: 1.5vh; transform: translateX(-50%) scale(.88); transform-origin: top center; }
+  .trace-side { top: 22%; height: 73%; }
+  .trace-coach { height: 55%; }
+  .trace-coach .coach-mascot { height: 43%; flex-basis: 43%; }
+  .classroom-card { top: 22%; height: 74%; }
+  .trace-progress-card { padding: 10px 12px; }
+  .trace-progress-title { margin-bottom: 7px; }
+}
+
+@media (max-width:700px),(orientation:portrait) {
+  .trace-heading { top: 2%; width: 72vw; }
+  .trace-heading h1 { font-size: clamp(24px,5.5vw,36px); }
+  .trace-heading .heading-subtitle { font-size: clamp(10px,2.5vw,14px); }
+  .trace-side { top: 17%; left: 3%; width: 94%; height: 21%; }
+  .trace-coach { height: 100%; flex-direction: row; justify-content: center; gap: 8px; }
+  .trace-coach .coach-mascot { width: 22%; height: 100%; flex-basis: 22%; }
+  .trace-coach .speech-bubble { width: auto; min-height: 60%; flex: 1; padding: .5em .65em; border-radius: 18px; }
+  .trace-coach .speech-bubble::before { top: 44%; left: -10px; border: 0; border-bottom: 3px solid white; border-left: 3px solid white; }
+  .trace-coach .speech-bubble p { font-size: clamp(10px,2.6vw,14px); }
+  .trace-progress-card { right: 0; bottom: auto; left: 0; top: 100%; display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 16px; }
+  .trace-progress-title { flex: 0 0 auto; margin: 0; font-size: clamp(10px,2.5vw,13px); }
+  .trace-progress-track { flex: 1; height: 10px; }
+  .trace-progress-card p { min-width: 68px; margin: 0; font-size: clamp(9px,2vw,11px); }
+  .classroom-card { top: 42%; left: 3%; width: 94%; height: 54%; border-radius: 20px; }
+  .trace-hint-chip { top: 3%; font-size: clamp(9px,2.3vw,12px); }
+  .trace-dudu { width: clamp(44px,12vw,76px); height: 20%; }
+  .trace-goal { width: clamp(30px,8vw,44px); }
+}
+
+@media (max-height:460px) and (orientation:landscape) {
+  .trace-heading { top: 1vh; transform: translateX(-50%) scale(.74); }
+  .trace-side { top: 21%; width: 20%; height: 75%; }
+  .trace-coach { height: 56%; gap: 2px; }
+  .trace-coach .coach-mascot { height: 40%; flex-basis: 40%; }
+  .trace-coach .speech-bubble { min-height: 45%; padding: .45em .6em; }
+  .trace-coach .speech-bubble p { font-size: clamp(9px,2.3vh,12px); }
+  .trace-progress-card { padding: 7px 9px; border-radius: 16px; }
+  .trace-progress-title { margin-bottom: 5px; font-size: 11px; }
+  .trace-progress-card p { margin-top: 4px; font-size: 10px; }
+  .trace-progress-track { height: 9px; }
+  .classroom-card { top: 20%; height: 77%; }
+  .trace-hint-chip { padding: .3em .7em; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .trace-start-ring,.trace-end-ring { animation: none; }
+}

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#9ccafa">
+  <title>Misi 3 — Jalan Dudu</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/m3-lv2.css">
+</head>
+<body class="fruit-game-page path-game-page">
+  <main class="page fruit-game-screen path-game-screen">
+    <img class="game-background" src="asset/background/background.png" alt="" aria-hidden="true">
+    <div class="sky-sparkle sparkle-one" aria-hidden="true">✦</div>
+    <div class="sky-sparkle sparkle-two" aria-hidden="true">✦</div>
+    <div class="sky-sparkle sparkle-three" aria-hidden="true">✧</div>
+
+    <a class="home-button" href="misi3.html" aria-label="Kembali ke menu Misi 3">
+      <img src="asset/icon/homee.png" alt="">
+    </a>
+    <div class="level-progress" aria-label="Misi 3, level 2">
+      <span class="progress-star" aria-hidden="true">★</span><span>LEVEL 2</span>
+      <span class="progress-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+
+    <header class="game-heading path-heading">
+      <p class="heading-kicker">MISI 3 · AKU MENCOBA</p>
+      <h1>Jalan Dudu</h1>
+      <p class="heading-subtitle">Bantu Dudu menemukan kucingnya!</p>
+    </header>
+
+    <section class="dudu-coach path-coach" aria-label="Petunjuk Dudu">
+      <img class="coach-mascot" src="asset/dudu/dudu-misi3.png" alt="Dudu">
+      <div class="speech-bubble" id="dudu-bubble" aria-hidden="true">
+        <span id="dudu-text"></span><b class="bubble-sparkle" aria-hidden="true">✦</b>
+      </div>
+    </section>
+
+    <p class="path-instruction" id="path-instruction">Tarik potongan jalan ke ketiga kotak agar jalurnya tersambung.</p>
+
+    <section class="route-board" aria-label="Jalur Dudu menuju kucing">
+      <div class="route-start">
+        <img src="asset/misi3/dudu-kehilangan-kucing.png" alt="Dudu memulai perjalanan mencari kucing">
+        <span>Mulai</span>
+      </div>
+      <span class="route-link" aria-hidden="true">➜</span>
+      <button class="route-piece-slot" type="button" data-slot="1" aria-label="Kotak nomor 1, taruh potongan jalan di sini">
+        <span class="route-number">1</span><span class="slot-hint">Taruh jalan di sini</span>
+        <img class="placed-road" alt="" hidden><span class="placed-label" hidden></span>
+      </button>
+      <span class="route-link" aria-hidden="true">➜</span>
+      <button class="route-piece-slot" type="button" data-slot="2" aria-label="Kotak nomor 2, taruh potongan jalan di sini">
+        <span class="route-number">2</span><span class="slot-hint">Taruh jalan di sini</span>
+        <img class="placed-road" alt="" hidden><span class="placed-label" hidden></span>
+      </button>
+      <span class="route-link" aria-hidden="true">➜</span>
+      <button class="route-piece-slot" type="button" data-slot="3" aria-label="Kotak nomor 3, taruh potongan jalan di sini">
+        <span class="route-number">3</span><span class="slot-hint">Taruh jalan di sini</span>
+        <img class="placed-road" alt="" hidden><span class="placed-label" hidden></span>
+      </button>
+      <span class="route-link" aria-hidden="true">➜</span>
+      <div class="route-goal">
+        <img src="asset/misi3/kucing.png" alt="Kucing yang dicari Dudu">
+        <span>Ketemu!</span>
+      </div>
+    </section>
+
+    <section class="road-choice-area" aria-label="Pilih potongan jalan">
+      <h2>Pilih potongan jalan · boleh dipakai berulang</h2>
+      <div class="road-choices">
+        <button class="road-choice road-choice-horizontal" type="button" data-road="horizontal" aria-label="Pilih jalan mendatar">
+          <span class="road-choice-art"><img src="asset/misi3/jalan-h.png" alt=""></span>
+          <span class="road-choice-label">Mendatar</span>
+        </button>
+        <button class="road-choice road-choice-vertical" type="button" data-road="vertical" aria-label="Pilih jalan tegak">
+          <span class="road-choice-art"><img src="asset/misi3/jalan-v.png" alt=""></span>
+          <span class="road-choice-label">Tegak</span>
+        </button>
+      </div>
+    </section>
+
+    <p class="answer-feedback path-feedback" id="answer-feedback" role="status" aria-live="polite"></p>
+    <dialog class="art-dialog path-dialog" id="result-dialog" aria-label="Hasil permainan">
+      <div class="dialog-art-wrap">
+        <img class="dialog-art" id="dialog-art" src="asset/icon/lanjut-lv2.png" alt="">
+        <button class="dialog-hotspot" id="dialog-action" type="button" aria-label="Lanjut"></button>
+      </div>
+    </dialog>
+    <div class="answer-sparkles" id="answer-sparkles" aria-hidden="true"></div>
+    <div class="drag-ghost" id="drag-ghost" aria-hidden="true"></div>
+  </main>
+  <script src="js/m3-lv2.js" defer></script>
+</body>
+</html>

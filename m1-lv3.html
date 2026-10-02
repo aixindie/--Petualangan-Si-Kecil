@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#9ccafa">
+    <title>Aku Menjelajah — Level 3</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/m1-lv3.css">
+</head>
+<body class="fruit-game-page explore-game-page">
+    <main class="page fruit-game-screen explore-game-screen">
+        <img class="game-background" src="asset/background/background.png" alt="" aria-hidden="true">
+        <div class="sky-sparkle sparkle-one" aria-hidden="true">✦</div>
+        <div class="sky-sparkle sparkle-two" aria-hidden="true">✦</div>
+        <div class="sky-sparkle sparkle-three" aria-hidden="true">✧</div>
+
+        <button class="home-button" id="homeButton" type="button" aria-label="Kembali ke pilihan level" title="Kembali ke pilihan level">
+            <img src="asset/icon/homee.png" alt="">
+        </button>
+
+        <div class="level-progress" aria-label="Level 3 dari 3">
+            <span class="progress-star" aria-hidden="true">★</span>
+            <span>LEVEL 3</span>
+            <span class="progress-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+
+        <header class="game-heading">
+            <p class="heading-kicker">Petualangan di kelas</p>
+            <h1>Aku Menjelajah</h1>
+            <p class="heading-subtitle">Temukan tiga meja bundar</p>
+        </header>
+
+        <section class="dudu-coach" aria-label="Pesan dari Dudu">
+            <img class="coach-mascot" id="dudu" src="asset/dudu/dudu-misi1.png" alt="Dudu siap menjelajah kelas">
+            <div class="speech-bubble is-visible" id="duduBubble" aria-hidden="false">
+                <span class="bubble-sparkle" aria-hidden="true">✦</span>
+                <p id="duduText">Hore! Kita sudah sampai di kelas. Bantu Dudu menemukan tiga meja bundar!</p>
+            </div>
+        </section>
+
+        <figure class="explore-photo" id="explorePhoto">
+            <img class="classroom-image" src="asset/misi1/meja.jpg" alt="Foto kelas KB Al Kautsar dengan tiga meja bundar">
+            <figcaption class="photo-hint"><span aria-hidden="true">👀</span> Ketuk meja bundar di foto!</figcaption>
+            <button class="table-hotspot table-green" type="button" data-table="1" aria-label="Temukan meja bundar hijau"></button>
+            <button class="table-hotspot table-orange" type="button" data-table="2" aria-label="Temukan meja bundar oranye"></button>
+            <button class="table-hotspot table-red" type="button" data-table="3" aria-label="Temukan meja bundar merah"></button>
+            <span class="table-found-star star-green" aria-hidden="true">★</span>
+            <span class="table-found-star star-orange" aria-hidden="true">★</span>
+            <span class="table-found-star star-red" aria-hidden="true">★</span>
+        </figure>
+
+        <section class="table-counter" aria-live="polite" aria-label="Jumlah meja yang ditemukan">
+            <div class="counter-heading"><span aria-hidden="true">🪑</span> Meja ditemukan</div>
+            <div class="counter-score"><strong id="tableCount">0</strong><span> / 3</span></div>
+            <div class="counter-track" aria-hidden="true"><i id="counterProgress"></i></div>
+        </section>
+
+        <div class="answer-feedback" id="feedback" role="status" aria-live="polite"></div>
+        <div class="star-burst" id="starEffect" aria-hidden="true">⭐ ✨ ⭐</div>
+
+        <dialog class="art-dialog" id="finishDialog" aria-label="Level 3 selesai">
+            <img class="dialog-art" id="finishArt" src="" alt="">
+            <button class="dialog-hotspot" id="finishAction" type="button" aria-label="Kembali ke misi"></button>
+        </dialog>
+    </main>
+    <script src="js/m1-lv3.js" defer></script>
+</body>
+</html>

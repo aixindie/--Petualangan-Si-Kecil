@@ -1,0 +1,114 @@
+.opening-page {
+    background: #182131;
+}
+
+.introduction-screen {
+    isolation: isolate;
+    background: #182131;
+}
+
+.video-background {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.video-overlay {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: rgb(0 0 0 / 8%);
+    pointer-events: none;
+}
+
+/* Hotspot transparan mengikuti posisi tombol mulai pada video pembuka. */
+.opening-button {
+    position: absolute;
+    z-index: 5;
+    top: 82%;
+    left: 71%;
+    width: 28%;
+    height: 15%;
+    padding: 0;
+    border: 0;
+    border-radius: 1.5rem;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.opening-button:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    background: rgb(255 255 255 / 12%);
+}
+
+.sound-button {
+    position: absolute;
+    z-index: 10;
+    top: 4%;
+    left: 2.5%;
+    display: grid;
+    width: clamp(42px, 6vw, 64px);
+    aspect-ratio: 1;
+    place-items: center;
+    padding: 0;
+    border: 1px solid rgb(255 255 255 / 48%);
+    border-radius: 50%;
+    background: rgb(20 32 49 / 38%);
+    color: white;
+    font-size: clamp(22px, 3vw, 34px);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sound-button:hover,
+.sound-button:focus-visible {
+    background: rgb(20 32 49 / 68%);
+}
+
+.sound-button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+.sound-hint {
+    position: absolute;
+    z-index: 10;
+    top: calc(4% + clamp(46px, 6vw, 68px));
+    left: 2.5%;
+    max-width: min(55vw, 340px);
+    margin: 0;
+    padding: 0.45em 0.75em;
+    border-radius: 0.7em;
+    background: rgb(20 32 49 / 72%);
+    color: white;
+    font-size: clamp(11px, 1.3vw, 15px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+}
+
+.sound-hint.is-visible {
+    opacity: 1;
+}
+
+@media (orientation: landscape) and (max-height: 480px) {
+    .sound-button {
+        top: 3%;
+        width: clamp(34px, 8vh, 46px);
+        font-size: clamp(18px, 4vh, 24px);
+    }
+
+    .sound-hint {
+        top: calc(3% + clamp(38px, 8vh, 50px));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sound-hint { transition: none; }
+}

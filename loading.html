@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Petualangan Si Kecil</title>
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- CSS khusus loading -->
+    <link rel="stylesheet" href="css/loading.css">
+</head>
+
+<body>
+
+    <main class="page loading-page" aria-label="Memuat Petualangan Si Kecil">
+
+        <!-- Background -->
+        <img
+            src="asset/background/background.png"
+            class="loading-background"
+            alt=""
+        >
+
+        <!-- Isi loading -->
+        <div class="loading-content">
+
+            <!-- Icon loading -->
+            <img
+                src="asset/dudu/dudu-misi1.png"
+                class="loading-icon"
+                alt="Dudu mengamati dengan kaca pembesar"
+            >
+
+            <!-- Teks -->
+            <div class="loading-label" id="loadingLabel" aria-live="polite">
+                Memuat...
+            </div>
+
+            <!-- Progress -->
+            <div class="progress-wrapper">
+
+                <div
+                    class="progress-track"
+                    role="progressbar"
+                    aria-label="Progres pemuatan"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    id="progressTrack"
+                >
+                    <div
+                        class="progress-fill"
+                        id="progressFill"
+                    ></div>
+
+                    <span
+                        class="progress-text"
+                        id="progressText"
+                    >
+                        0%
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- JavaScript khusus loading -->
+    <script src="js/loading.js" defer></script>
+
+</body>
+</html>
