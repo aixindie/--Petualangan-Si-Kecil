@@ -88,10 +88,17 @@
     -webkit-text-stroke: 1px #4a8bc8;
 }
 
+@media (max-width: 700px), (orientation: landscape) and (max-height: 560px) {
+    .mission-heading h1 {
+        text-shadow: 0 1px 0 #3981c6, 0 2px 0 #2468ad, 0 4px 7px rgb(30 74 119 / 22%);
+        -webkit-text-stroke-width: .6px;
+    }
+}
+
 .mission-mascot {
-    width: clamp(122px, 26vh, 208px);
-    height: clamp(122px, 26vh, 208px);
-    margin-top: clamp(3px, 1vh, 11px);
+    width: clamp(145px, 29vh, 260px);
+    height: clamp(145px, 29vh, 260px);
+    margin-top: clamp(40px, 2vh, 20px);
     object-fit: contain;
     filter: drop-shadow(0 8px 6px rgb(36 67 101 / 20%));
     animation: mascot-float 2.8s ease-in-out infinite;
@@ -288,7 +295,7 @@
 @media (orientation: landscape) and (max-height: 540px) {
     .mission-heading { top: 3vh; }
     .mission-heading h1 { font-size: clamp(24px, 6vh, 38px); }
-    .mission-mascot { width: clamp(94px, 25vh, 142px); height: clamp(94px, 25vh, 142px); margin-top: 1vh; }
+    .mission-mascot { width: clamp(104px, 28vh, 164px); height: clamp(104px, 28vh, 164px); margin-top: clamp(16px, 4.5vh, 28px); }
     .level-list { right: 8%; bottom: 5vh; left: 8%; height: 48%; }
     .level-art { width: min(24vh, 128px); }
     .home-button { top: 3vh; width: clamp(38px, 9vh, 50px); }

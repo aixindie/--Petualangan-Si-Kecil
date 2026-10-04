@@ -80,13 +80,13 @@ function handleCorrectAnswer(choice) {
 function showArtwork(source, description, mode) {
     window.clearTimeout(retryTimer);
     dialogMode = mode;
-    dialogArt.src = source;
-    dialogArt.alt = description;
+    window.setDialogArtwork(dialogArt, source, description);
     if (!feedbackDialog.open) feedbackDialog.showModal();
 }
 
 function speakAsDudu(message, fallbackMs) {
     stopDuduSpeech();
+    document.body.classList.remove("dudu-bubble-hidden");
     duduText.textContent = message;
     duduBubble.classList.add("is-visible");
     duduBubble.setAttribute("aria-hidden", "false");
@@ -124,13 +124,13 @@ function stopDuduSpeech() {
 function hideDuduBubble() {
     duduBubble.classList.remove("is-visible");
     duduBubble.setAttribute("aria-hidden", "true");
+    document.body.classList.add("dudu-bubble-hidden");
 }
 
 dialogAction.addEventListener("click", () => {
     if (dialogMode === "reward") {
         dialogMode = "next-preview";
-        dialogArt.src = "asset/misi1/lv2-m1.png";
-        dialogArt.alt = "Pratinjau level 2: Aku Mencoba";
+        window.setDialogArtwork(dialogArt, "asset/misi1/lv2-m1.png", "Pratinjau level 2: Aku Mencoba");
         dialogAction.setAttribute("aria-label", "Mulai level 2");
         dialogAction.focus();
         return;

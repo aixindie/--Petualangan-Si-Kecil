@@ -2,11 +2,11 @@
 <html lang="id">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#a9d7ff">
   <title>Misi 2 — Pilih Keranjang Banyak</title>
   <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/m2-lv2.css">
+  <link rel="stylesheet" href="css/m2-lv2.css?v=20261005-laptop-basket-layout">
 </head>
 <body class="fruit-game-page basket-game-page">
   <main class="page fruit-game-screen basket-game-screen">
@@ -30,6 +30,8 @@
         <span id="dudu-text"></span><b class="bubble-sparkle" aria-hidden="true">✦</b>
       </div>
     </section>
+
+    <img class="empty-basket-decoration" src="asset/misi2/keranjang.png" alt="" aria-hidden="true">
 
     <section class="question-area basket-question" aria-labelledby="question-title">
       <p class="question-label">🔎 MISI KECIL DUDU</p>
@@ -62,6 +64,7 @@
     </dialog>
     <div class="answer-sparkles" id="answer-sparkles" aria-hidden="true"></div>
   </main>
+  <script src="js/dialog-art.js" defer></script>
   <script src="js/m2-lv2.js" defer></script>
 </body>
 </html>

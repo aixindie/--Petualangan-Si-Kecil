@@ -5,6 +5,7 @@
 .game-heading h1 { text-align: center; }
 .basket-coach { z-index: 2; top: 22%; left: clamp(24px, 4vw, 52px); width: min(44%, 560px); height: 24%; overflow: visible; }
 .basket-coach .speech-bubble span:not(.bubble-sparkle) { font-size: clamp(12px, 1.55vw, 19px); font-weight: 800; line-height: 1.35; }
+.empty-basket-decoration { position: absolute; z-index: 1; top: 25%; left: 50%; width: clamp(100px, 15vw, 150px); height: clamp(90px, 19vh, 132px); object-fit: contain; filter: drop-shadow(0 7px 5px rgba(48,83,106,.14)); opacity: .96; pointer-events: none; transform: translateX(-50%); }
 .basket-question { position: absolute; top: 43%; right: 4%; bottom: 3%; left: 4%; width: auto; margin: 0; text-align: center; }
 .basket-question .question-label, .basket-question h2 { position: static; display: block; margin: 0 auto .35rem; }
 .basket-question .question-label { position: static; inset: auto; transform: none; justify-content: center; }
@@ -32,7 +33,7 @@
 .answer-feedback.is-correct { color: #278750; }
 .art-dialog { z-index: 20; }
 .art-dialog[open] { display: grid; place-items: center; }
-.dialog-art-wrap { position: relative; z-index: 1; width: min(76vw, 510px); aspect-ratio: 1; animation: dialog-pop .35s cubic-bezier(.2,.8,.25,1.2) both; }
+.dialog-art-wrap { position: relative; z-index: 1; width: min(100%, 510px); aspect-ratio: 1; animation: dialog-pop .35s cubic-bezier(.2,.8,.25,1.2) both; }
 .dialog-art-wrap .dialog-art { display: block; width: 100%; max-height: 78vh; object-fit: contain; }
 .dialog-hotspot { position: absolute; left: 22%; bottom: 7%; width: 56%; height: 19%; border: 0; border-radius: 24px; background: transparent; cursor: pointer; }
 .dialog-hotspot:focus-visible { outline: 4px dashed white; outline-offset: -4px; }
@@ -43,21 +44,23 @@
 
 @media (min-aspect-ratio: 1/1) and (max-height: 620px) {
   .game-heading { transform: translateX(-50%) scale(.82); transform-origin: top center; }
-  .basket-question { top: 39%; }
-  .basket-options { width: min(82%, 780px); gap: 3rem; }
-  .basket-choice { min-height: 205px; padding: .65rem .5rem; border-radius: 27px; }
-  .basket-choice-art { flex-basis: 96px; width: min(70%, 165px); height: 96px; }
-  .basket-choice-number { top: 10px; left: 12px; width: 32px; height: 32px; }
-  .basket-choice-caption { font-size: 1.3rem; }
+  .empty-basket-decoration { top: 20%; left: 50%; width: clamp(128px, 12vw, 180px); height: clamp(100px, 16vh, 138px); }
+  .basket-question { top: 38%; }
+  .basket-options { width: min(68%, 620px); gap: 1.2rem; margin-top: .8rem; }
+  .basket-choice { min-height: clamp(142px, 28vh, 172px); padding: .45rem .35rem; border-radius: 22px; }
+  .basket-choice-art { flex-basis: clamp(70px, 15vh, 88px); width: min(68%, 130px); height: clamp(70px, 15vh, 88px); }
+  .basket-choice-number { top: 8px; left: 9px; width: 28px; height: 28px; }
+  .basket-choice-caption { font-size: 1.1rem; }
 }
 @media (max-width: 700px), (orientation: portrait) {
   .basket-coach { top: 22%; left: 24px; width: 63%; height: 22%; }
-  .basket-question { top: 46%; right: 3%; bottom: 3%; left: 3%; }
+  .empty-basket-decoration { top: 17%; left: 50%; right: auto; width: clamp(82px, 18vw, 108px); height: 11vh; }
+  .basket-question { top: 29%; right: 3%; bottom: 3%; left: 3%; }
   .basket-options { gap: .8rem; }
-  .basket-choice { min-height: clamp(190px, 29vh, 255px); padding: .7rem .45rem; border-radius: 24px; }
-  .basket-choice-art { flex-basis: clamp(90px, 16vh, 125px); width: 80%; height: clamp(90px, 16vh, 125px); }
-  .basket-choice-number { top: 9px; left: 9px; width: 31px; height: 31px; font-size: .9rem; }
-  .basket-choice-caption { font-size: clamp(1.1rem, 4vw, 1.55rem); }
+  .basket-choice { min-height: clamp(145px, 31vh, 185px); padding: .45rem .35rem; border-radius: 20px; }
+  .basket-choice-art { flex-basis: clamp(74px, 17vh, 96px); width: 76%; height: clamp(74px, 17vh, 96px); }
+  .basket-choice-number { top: 7px; left: 7px; width: 27px; height: 27px; font-size: .8rem; }
+  .basket-choice-caption { font-size: clamp(1rem, 3.4vw, 1.2rem); }
   .basket-choice-hint { font-size: .7rem; }
   .versus-badge { width: 43px; height: 43px; border-width: 3px; font-size: .7rem; }
 }

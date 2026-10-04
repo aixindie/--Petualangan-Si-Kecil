@@ -1,11 +1,11 @@
-.index-page {
+.loading-page {
     display: grid;
     place-items: center;
     background: #7db9f4;
     isolation: isolate;
 }
 
-.index-background {
+.loading-background {
     position: absolute;
     z-index: -2;
     inset: 0;
@@ -16,7 +16,7 @@
 }
 
 /* Lapisan tipis menjaga Dudu dan tulisan jelas di berbagai latar layar. */
-.index-page::before {
+.loading-page::before {
     position: absolute;
     z-index: -1;
     inset: 0;
@@ -24,7 +24,7 @@
     content: "";
 }
 
-.index-content {
+.loading-content {
     display: flex;
     width: min(72vw, 760px);
     max-height: 94%;
@@ -36,7 +36,7 @@
     text-align: center;
 }
 
-.index-icon {
+.loading-icon {
     width: clamp(100px, 25vh, 230px);
     max-height: 48vh;
     object-fit: contain;
@@ -45,7 +45,7 @@
     animation: dudu-ready 1.5s ease-in-out infinite;
 }
 
-.index-label {
+.loading-label {
     color: var(--loading-ink);
     font-size: clamp(15px, 2.5vw, 26px);
     font-weight: 800;
@@ -88,7 +88,7 @@
     transform: translate(-50%, -50%);
 }
 
-.index-content.is-complete .index-icon {
+.loading-content.is-complete .loading-icon {
     animation: dudu-celebrate 550ms ease-in-out 2;
 }
 
@@ -105,24 +105,24 @@
 
 /* Pada layar horizontal pendek, tata letak tetap muat dan mengikuti tinggi layar. */
 @media (orientation: landscape) and (max-height: 520px) {
-    .index-content {
+    .loading-content {
         width: min(62vw, 660px);
         gap: clamp(4px, 1.4vh, 10px);
         padding: 6px 12px;
     }
 
-    .index-icon {
+    .loading-icon {
         width: clamp(72px, 24vh, 135px);
         max-height: 38vh;
     }
 
-    .index-label { font-size: clamp(13px, 4vh, 20px); }
+    .loading-label { font-size: clamp(13px, 4vh, 20px); }
     .progress-track { height: clamp(16px, 5vh, 24px); }
 }
 
 @media (orientation: portrait) {
-    .index-content { width: min(84vw, 560px); }
-    .index-icon { width: clamp(115px, 31vw, 215px); max-height: 38vh; }
+    .loading-content { width: min(84vw, 560px); }
+    .loading-icon { width: clamp(115px, 31vw, 215px); max-height: 38vh; }
 }
 
 @media (prefers-reduced-motion: reduce) {

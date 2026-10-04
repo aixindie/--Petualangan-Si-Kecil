@@ -106,6 +106,13 @@
     -webkit-text-stroke: 1px #5791ca;
 }
 
+@media (max-width: 700px), (orientation: landscape) and (max-height: 560px) {
+    .game-heading h1 {
+        text-shadow: 0 1px 0 #4587c9, 0 2px 0 #2868ab, 0 4px 7px rgb(35 78 125 / 24%);
+        -webkit-text-stroke-width: .6px;
+    }
+}
+
 .heading-subtitle {
     display: inline-block;
     margin: .45em 0 0;
@@ -131,15 +138,37 @@
 }
 
 .coach-mascot {
-    width: 30%;
-    height: 100%;
-    flex: 0 0 30%;
+    width: 40%;
+    height: 120%;
+    flex: 0 0 40%;
     object-fit: contain;
     filter: drop-shadow(0 8px 6px rgb(43 76 105 / 20%));
     animation: dudu-bob 3s ease-in-out infinite;
 }
 
 .coach-mascot.is-celebrating { animation: dudu-celebrate 850ms cubic-bezier(.2,.8,.25,1.25); }
+
+.fruit-basket-decoration {
+    position: absolute;
+    z-index: 1;
+    top: 27%;
+    left: 50%;
+    width: clamp(145px, 22vh, 220px);
+    height: clamp(145px, 22vh, 220px);
+    object-fit: contain;
+    filter: drop-shadow(0 7px 6px rgb(43 76 105 / 20%));
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 8px) scale(.92);
+    transition: opacity 240ms ease, transform 240ms ease, visibility 240ms ease;
+}
+
+.dudu-bubble-hidden .fruit-basket-decoration {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(1);
+}
 
 .speech-bubble {
     position: relative;
@@ -419,7 +448,7 @@
 @media (max-width: 650px) {
     .game-heading { top: 4%; width: 70vw; }
     .dudu-coach { top: 23%; left: 3%; width: 54%; height: 25%; }
-    .coach-mascot { width: 31%; flex-basis: 31%; }
+    .coach-mascot { width: 40%; flex-basis: 40%; }
     .speech-bubble { padding: .65em .8em; border-radius: 19px; }
     .speech-bubble p { font-size: clamp(11px, 2.5vw, 15px); }
     .question-label { top: 49%; }
@@ -486,6 +515,14 @@
 
     .fruit-option { padding: 8px 10px 6px; }
     .fruit-name { font-size: clamp(10px, 2.8vh, 13px); }
+}
+
+@media (orientation: landscape) and (max-height: 560px) {
+    .fruit-basket-decoration {
+        top: 21%;
+        width: clamp(94px, 20vh, 135px);
+        height: clamp(94px, 20vh, 135px);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

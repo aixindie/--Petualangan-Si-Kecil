@@ -3,6 +3,28 @@ const soundButton = document.getElementById("soundButton");
 const soundHint = document.getElementById("soundHint");
 const startAdventure = document.getElementById("startAdventure");
 
+function positionAdventureButton() {
+    const frame = openingVideo.getBoundingClientRect();
+    const videoWidth = openingVideo.videoWidth;
+    const videoHeight = openingVideo.videoHeight;
+    if (!videoWidth || !videoHeight) return;
+
+    const contain = getComputedStyle(openingVideo).objectFit === "contain";
+    const scale = contain
+        ? Math.min(frame.width / videoWidth, frame.height / videoHeight)
+        : Math.max(frame.width / videoWidth, frame.height / videoHeight);
+    const displayedWidth = videoWidth * scale;
+    const displayedHeight = videoHeight * scale;
+    const offsetX = frame.left + (frame.width - displayedWidth) / 2;
+    const offsetY = frame.top + (frame.height - displayedHeight) / 2;
+
+    // Hotspot mengikuti tombol yang terlihat pada video (area kanan-bawah tengah).
+    startAdventure.style.left = `${offsetX + displayedWidth * 0.53}px`;
+    startAdventure.style.top = `${offsetY + displayedHeight * 0.72}px`;
+    startAdventure.style.width = `${displayedWidth * 0.38}px`;
+    startAdventure.style.height = `${displayedHeight * 0.16}px`;
+}
+
 function updateSoundControl() {
     const muted = openingVideo.muted || openingVideo.volume === 0;
     soundButton.querySelector("span").textContent = muted ? "🔇" : "🔊";
@@ -55,9 +77,10 @@ soundButton.addEventListener("click", async () => {
     }
 });
 
-startAdventure.addEventListener("click", () => {
-    window.location.href = "menu.html";
-});
+openingVideo.addEventListener("loadedmetadata", positionAdventureButton);
+window.addEventListener("resize", positionAdventureButton);
+window.addEventListener("orientationchange", positionAdventureButton);
+positionAdventureButton();
 
 updateSoundControl();
 startVideo();

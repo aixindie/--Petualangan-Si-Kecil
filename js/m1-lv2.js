@@ -61,16 +61,14 @@ function handleCorrectAnswer(choice) {
 function showArtwork(source, description, mode) {
     window.clearTimeout(retryTimer);
     dialogMode = mode;
-    dialogArt.src = source;
-    dialogArt.alt = description;
+    window.setDialogArtwork(dialogArt, source, description);
     if (!feedbackDialog.open) feedbackDialog.showModal();
 }
 
 dialogAction.addEventListener("click", () => {
     if (dialogMode === "reward") {
         dialogMode = "next-preview";
-        dialogArt.src = "asset/misi1/lv3-m1.png";
-        dialogArt.alt = "Pratinjau level 3: Aku Menjelajah";
+        window.setDialogArtwork(dialogArt, "asset/misi1/lv3-m1.png", "Pratinjau level 3: Aku Menjelajah");
         dialogAction.setAttribute("aria-label", "Mulai level 3");
         dialogAction.focus();
     } else if (dialogMode === "next-preview") {

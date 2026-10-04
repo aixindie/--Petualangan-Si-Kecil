@@ -72,7 +72,7 @@ function showFinishPopup() {
 }
 
 finishAction.addEventListener("click", () => {
-    window.location.href = "misi1.html";
+    window.location.href = "menu.html";
 });
 
 finishDialog.addEventListener("cancel", (event) => event.preventDefault());

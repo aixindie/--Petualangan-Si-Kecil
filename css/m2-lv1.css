@@ -3,7 +3,7 @@
 .m2-level-screen { isolation: isolate; }
 .m2-level-screen .game-heading { z-index: 7; }
 .m2-coach { top: 22%; left: 4%; width: 46%; height: 23%; z-index: 5; }
-.m2-coach .coach-mascot { width: 27%; flex-basis: 27%; }
+.m2-coach .coach-mascot { width: 37%; flex-basis: 37%; }
 .m2-coach .speech-bubble { min-height: 62%; }
 .m2-coach .speech-bubble p { font-size: clamp(12px, 1.35vw, 18px); }
 
@@ -194,11 +194,12 @@
 
 @media (orientation: portrait) {
     .m2-coach { top: 16%; left: 4%; width: 92%; height: 20%; }
-    .m2-coach .coach-mascot { width: 23%; flex-basis: 23%; }
+    .m2-coach .coach-mascot { width: 33%; flex-basis: 33%; }
     .m2-coach .speech-bubble { min-height: 65%; padding: .7em .9em; }
     .m2-coach .speech-bubble p { font-size: clamp(11px, 2.4vw, 16px); }
-    .tree-play-area { top: 40%; left: 50%; width: min(48vw, 40vh); transform: translateX(-50%); }
-    .basket-play-area { top: 46%; right: 4%; width: min(35vw, 36vh); }
+    /* Pohon dan keranjang berdampingan; dasar keranjang sejajar dengan akar. */
+    .tree-play-area { top: 39%; left: 4%; width: min(46vw, 36vh); transform: none; }
+    .basket-play-area { top: 50%; right: 4%; width: min(33vw, 32vh); }
     .apple-counter { bottom: 4%; left: 4%; width: min(46vw, 260px); }
     .tree-apple { font-size: clamp(22px, 3.5vh, 36px); }
     .basket-apple { font-size: clamp(28px, 4.5vh, 42px); }

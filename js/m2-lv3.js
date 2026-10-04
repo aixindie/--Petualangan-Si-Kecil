@@ -65,9 +65,12 @@
 
   function showDialog(isRetry) {
     dialogIsRetry = isRetry;
-    dialogArt.src = isRetry ? "asset/icon/coba-lagi.png" : "asset/icon/lanjut-lv3.png";
-    dialogArt.alt = isRetry ? "Coba lagi!" : "Keren! Tiga bintang. Tekan lanjut.";
-    dialogAction.setAttribute("aria-label", isRetry ? "Tutup pesan coba lagi" : "Kembali ke menu Misi 2");
+    window.setDialogArtwork(
+      dialogArt,
+      isRetry ? "asset/icon/coba-lagi.png" : "asset/icon/lanjut-lv3.png",
+      isRetry ? "Coba lagi!" : "Keren! Tiga bintang. Tekan lanjut."
+    );
+    dialogAction.setAttribute("aria-label", isRetry ? "Tutup pesan coba lagi" : "Kembali ke menu utama");
     if (!dialog.open) dialog.showModal();
   }
 
@@ -106,7 +109,7 @@
       dialog.close();
       return;
     }
-    window.location.href = "misi2.html";
+    window.location.href = "menu.html";
   });
   window.addEventListener("pagehide", stopSpeech, { once: true });
   speakAsDudu("Lihat! Ini papan kehadiran teman-teman KB Al Kautsar. Coba hitung, ada berapa wajah temanmu yang sudah hadir hari ini?", 7000);

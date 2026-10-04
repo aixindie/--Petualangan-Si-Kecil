@@ -3,22 +3,22 @@
 .path-game-screen { overflow: hidden; }
 .path-heading { z-index: 4; }
 .path-coach { z-index: 3; top: 21%; left: 3%; display: flex; width: min(24%,300px); height: 28%; flex-direction: column; align-items: center; justify-content: flex-start; gap: 2px; }
-.path-coach .coach-mascot { width: clamp(78px,11vh,112px); height: 53%; flex: 0 0 53%; }
+.path-coach .coach-mascot { width: clamp(200px,14vh,25px); height: 64%; flex: 0 0 64%; }
 .path-coach .speech-bubble { width: 100%; min-height: 40%; flex: 0 0 auto; padding: .65em .8em; border-radius: 22px; }
 .path-coach .speech-bubble::before { top: -12px; left: calc(50% - 10px); border: 0; border-top: 3px solid white; border-left: 3px solid white; background: #fff; }
 .path-coach .speech-bubble span:not(.bubble-sparkle) { font-size: clamp(11px,1.1vw,15px); font-weight: 800; line-height: 1.3; }
-.path-instruction { position: absolute; top: 37%; right: 5%; left: 30%; margin: 0; color: #274f79; font-size: clamp(14px,1.55vw,20px); font-weight: 900; text-align: center; text-shadow: 0 2px 0 rgba(255,255,255,.65); }
+.path-instruction { position: absolute; top: 37%; left: 50%; width: min(90vw,900px); margin: 0; color: #274f79; font-size: clamp(14px,1.55vw,20px); font-weight: 900; text-align: center; text-shadow: 0 2px 0 rgba(255,255,255,.65); transform: translateX(-50%); }
 
-.route-board { position: absolute; top: 39%; left: 63%; display: grid; width: min(72vw,930px); height: clamp(120px,18vh,155px); grid-template-columns: minmax(72px,.72fr) 20px minmax(105px,1fr) 20px minmax(105px,1fr) 20px minmax(105px,1fr) 20px minmax(72px,.72fr); align-items: center; gap: clamp(4px,.65vw,9px); padding: 12px clamp(12px,2vw,25px); transform: translateX(-50%); border: 3px solid rgba(255,255,255,.94); border-radius: 30px; background: linear-gradient(145deg,rgba(255,255,255,.7),rgba(255,255,255,.4)); box-shadow: 0 13px 26px rgba(49,96,139,.13),inset 0 0 0 1px rgba(255,255,255,.25); }
-.route-start,.route-goal { display: flex; min-width: 0; height: 100%; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; color: #486c8c; font-size: clamp(.65rem,.85vw,.8rem); font-weight: 900; }
-.route-start img { width: 100%; height: 80%; object-fit: contain; filter: drop-shadow(0 4px 5px rgba(45,73,96,.16)); }
-.route-goal img { width: 84%; height: 78%; object-fit: contain; filter: drop-shadow(0 4px 5px rgba(45,73,96,.16)); }
+.route-board { position: absolute; top: 39%; left: 50%; display: grid; width: min(72vw,930px); height: clamp(120px,18vh,155px); grid-template-columns: minmax(72px,.72fr) 20px minmax(105px,1fr) 20px minmax(105px,1fr) 20px minmax(105px,1fr) 20px minmax(72px,.72fr); align-items: center; gap: clamp(4px,.65vw,9px); padding: 12px clamp(12px,2vw,25px); transform: translateX(-50%); border: 3px solid rgba(255,255,255,.94); border-radius: 30px; background: linear-gradient(145deg,rgba(255,255,255,.7),rgba(255,255,255,.4)); box-shadow: 0 13px 26px rgba(49,96,139,.13),inset 0 0 0 1px rgba(255,255,255,.25); }
+.route-start,.route-goal { display: flex; min-width: 0; height: 100%; flex-direction: column; align-items: center; justify-content: flex-start; gap: .15rem; padding-top: 4px; color: #486c8c; font-size: clamp(.65rem,.85vw,.8rem); font-weight: 900; }
+.route-start img { width: 100%; height: 68%; object-fit: contain; filter: drop-shadow(0 4px 5px rgba(45,73,96,.16)); }
+.route-goal img { width: 84%; height: 68%; object-fit: contain; filter: drop-shadow(0 4px 5px rgba(45,73,96,.16)); }
 .route-link { color: #f2b438; font-size: clamp(1rem,1.6vw,1.45rem); font-weight: 1000; text-align: center; text-shadow: 0 2px 0 white; }
-.route-piece { position: relative; display: grid; width: 100%; height: 78%; min-width: 0; place-items: center; }
+.route-piece { position: relative; top: -5px; display: grid; width: 100%; height: 78%; min-width: 0; place-items: center; }
 .route-piece > img { display: block; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 4px rgba(42,66,86,.14)); }
 .route-number { position: absolute; z-index: 2; top: -12px; left: 50%; display: grid; width: 28px; height: 28px; place-items: center; transform: translateX(-50%); border: 2px solid white; border-radius: 50%; background: #65b7e6; box-shadow: 0 3px 6px rgba(36,76,111,.16); color: white; font-size: .82rem; font-weight: 1000; }
 .route-piece-vertical > img { width: 70%; }
-.route-piece-slot { position: relative; display: flex; height: 72%; min-width: 0; flex-direction: column; align-items: center; justify-content: center; gap: 2px; overflow: hidden; contain: layout paint; padding: 8px 4px 4px; border: 3px dashed #77c96f; border-radius: 18px; background: rgba(255,255,255,.72); color: #577794; cursor: pointer; transition: background .18s ease,border-color .18s ease; }
+.route-piece-slot { position: relative; top: -5px; display: flex; height: 72%; min-width: 0; flex-direction: column; align-items: center; justify-content: center; gap: 2px; overflow: hidden; contain: layout paint; padding: 8px 4px 4px; border: 3px dashed #77c96f; border-radius: 18px; background: rgba(255,255,255,.72); color: #577794; cursor: pointer; transition: background .18s ease,border-color .18s ease; }
 .route-piece-slot:hover,.route-piece-slot:focus-visible,.route-piece-slot.is-over,.route-piece-slot.is-active { border-color: #ffb93c; background: #fff; outline: none; }
 .route-piece-slot.is-over { transform: none; }
 .route-piece-slot > img.placed-road { flex: 0 1 68%; width: 94%; min-height: 0; object-fit: contain; filter: drop-shadow(0 3px 3px rgba(42,66,86,.14)); }
@@ -28,7 +28,7 @@
 .placed-label { color: #527493; font-size: clamp(.58rem,.72vw,.7rem); font-weight: 900; line-height: 1; }
 .path-slot-filled { border-style: solid; }
 
-.road-choice-area { position: absolute; top: calc(39% + clamp(120px,18vh,155px) + 5%); right: 10%; left: 30%; text-align: center; }
+.road-choice-area { position: absolute; top: calc(39% + clamp(120px,18vh,155px) + 5%); left: 50%; width: min(90vw,700px); text-align: center; transform: translateX(-50%); }
 .road-choice-area h2 { margin: 0 0 .4rem; color: #31567a; font-size: clamp(.95rem,1.3vw,1.12rem); font-weight: 1000; }
 .road-choices { display: flex; justify-content: center; gap: clamp(14px,2vw,25px); }
 .road-choice { --tone:#60b7e5; display: flex; width: clamp(130px,15vw,190px); height: clamp(115px,17vh,150px); flex-direction: column; align-items: center; justify-content: center; gap: .25rem; overflow: hidden; padding: 8px 12px; border: 3px solid white; border-radius: 24px; background: linear-gradient(145deg,#fff,#e6f6ff); box-shadow: 0 8px 0 rgba(74,139,203,.18),0 15px 23px rgba(47,99,153,.16); color: #31567a; cursor: grab; font: inherit; touch-action: none; user-select: none; transition: transform .18s ease,box-shadow .18s ease; }
@@ -44,7 +44,7 @@
 .path-feedback.is-wrong { color: #bd643c; }
 .path-feedback.is-correct { color: #278750; }
 .path-dialog { z-index: 30; }
-.path-dialog .dialog-art-wrap { position: relative; z-index: 1; width: min(76vw,510px); aspect-ratio: 1; animation: path-pop .34s cubic-bezier(.2,.8,.25,1.2) both; }
+.path-dialog .dialog-art-wrap { position: relative; z-index: 1; width: min(100%,510px); aspect-ratio: 1; animation: path-pop .34s cubic-bezier(.2,.8,.25,1.2) both; }
 .path-dialog .dialog-art { display: block; width: 100%; height: 100%; object-fit: contain; }
 .path-dialog .dialog-hotspot { top: 73%; left: 22%; width: 56%; height: 17%; }
 .answer-sparkles { position: absolute; z-index: 5; inset: 0; pointer-events: none; }
@@ -58,9 +58,11 @@
 @media (min-aspect-ratio:1/1) and (max-height:620px) {
   .game-heading { top: 1vh; transform: translateX(-50%) scale(.82); transform-origin: top center; }
   .path-coach { top: 19%; height: 25%; width: min(25%,265px); }
-  .path-coach .coach-mascot { height: 48%; flex-basis: 48%; }
-  .path-instruction { top: 34%; left: 28%; }
-  .route-board { top: 40%; left: 63%; height: clamp(118px,18vh,145px); min-height: 118px; padding: 10px 13px; }
+  .path-coach .coach-mascot { height: 59%; flex-basis: 59%; }
+  .path-instruction { top: 34%; }
+  .route-board { top: 40%; left: 50%; height: clamp(118px,18vh,145px); min-height: 118px; padding: 10px 13px; }
+  .route-start,.route-goal { top: -9px; }
+  .route-piece,.route-piece-slot { top: -10px; }
   .road-choice-area { top: calc(40% + clamp(118px,18vh,145px) + 5%); }
   .road-choice { height: clamp(88px,15vh,112px); }
 }
@@ -68,10 +70,10 @@
   .path-heading { top: 3%; width: 78vw; }
   .path-heading h1 { font-size: clamp(28px,6vw,42px); }
   .path-coach { top: 19%; left: 3%; width: 34%; height: 24%; }
-  .path-coach .coach-mascot { width: clamp(70px,10vh,96px); height: 48%; flex-basis: 48%; }
+  .path-coach .coach-mascot { width: clamp(86px,13vh,122px); height: 59%; flex-basis: 59%; }
   .path-coach .speech-bubble { min-height: 42%; padding: .5em .55em; }
   .path-coach .speech-bubble span:not(.bubble-sparkle) { font-size: clamp(10px,2.5vw,13px); }
-  .path-instruction { top: 39%; right: 4%; left: 4%; font-size: clamp(13px,3.4vw,17px); }
+  .path-instruction { top: 39%; width: min(92vw,800px); font-size: clamp(13px,3.4vw,17px); }
   .route-board { top: 45%; width: 96vw; height: 23vh; min-height: 145px; grid-template-columns: minmax(38px,.58fr) 8px minmax(48px,1fr) 8px minmax(48px,1fr) 8px minmax(48px,1fr) 8px minmax(38px,.58fr); gap: 2px; padding: 8px 5px; border-radius: 20px; }
   .route-start,.route-goal { font-size: .55rem; }
   .route-number { top: -9px; width: 22px; height: 22px; font-size: .68rem; }
@@ -79,7 +81,7 @@
   .slot-hint { font-size: .48rem; }
   .placed-label { font-size: .5rem; }
   .route-link { font-size: .8rem; }
-  .road-choice-area { top: calc(45% + 23vh + 5%); right: 4%; left: 4%; }
+  .road-choice-area { top: calc(45% + 23vh + 5%); width: min(92vw,700px); }
   .road-choice-area h2 { font-size: .85rem; }
   .road-choice { width: clamp(115px,37vw,170px); height: clamp(90px,14vh,120px); border-radius: 19px; }
   .path-feedback { bottom: 1%; }

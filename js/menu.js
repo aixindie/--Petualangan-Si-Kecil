@@ -48,9 +48,7 @@ missionDialog.addEventListener("close", () => {
 });
 
 backButton.addEventListener("click", () => {
-    exitNote.hidden = true;
-    exitDialog.showModal();
-    stayButton.focus();
+    window.location.href = "pengenalan.html";
 });
 
 stayButton.addEventListener("click", () => {

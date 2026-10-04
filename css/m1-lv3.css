@@ -167,7 +167,7 @@
 
 @media (orientation: portrait) {
     .explore-game-screen .dudu-coach { top: 17%; left: 4%; width: 92%; height: 21%; }
-    .explore-game-screen .coach-mascot { width: 24%; flex-basis: 24%; }
+    .explore-game-screen .coach-mascot { width: 34%; flex-basis: 34%; }
     .explore-game-screen .speech-bubble { min-height: 64%; padding: .7em .9em; }
     .explore-game-screen .speech-bubble p { font-size: clamp(11px, 2.5vw, 16px); }
     .explore-photo { top: 42%; right: 5%; width: min(68vw, 45vh); }

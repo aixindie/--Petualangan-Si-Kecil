@@ -4,7 +4,7 @@
 
 .introduction-screen {
     isolation: isolate;
-    background: #182131;
+    background: linear-gradient(145deg, #9bd4ff 0%, #78b8ef 52%, #f1d99b 100%);
 }
 
 .video-background {
@@ -13,7 +13,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
@@ -29,6 +29,7 @@
 .opening-button {
     position: absolute;
     z-index: 5;
+    display: block;
     top: 82%;
     left: 71%;
     width: 28%;

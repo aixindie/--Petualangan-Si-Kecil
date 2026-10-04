@@ -3,11 +3,11 @@
 .wash-game-screen { overflow: hidden; }
 .wash-heading { z-index: 5; }
 .wash-coach { z-index: 3; top: 22%; left: 4%; width: min(32%,430px); height: 20%; }
-.wash-coach .coach-mascot { width: 29%; flex-basis: 29%; }
+.wash-coach .coach-mascot { width: 39%; flex-basis: 39%; }
 .wash-coach .speech-bubble span:not(.bubble-sparkle) { font-size: clamp(12px,1.35vw,18px); font-weight: 800; line-height: 1.35; }
-.wash-instruction { position: absolute; z-index: 2; top: 34%; right: 5%; left: 38%; margin: 0; color: #274f79; font-size: clamp(15px,1.7vw,21px); font-weight: 900; text-align: center; text-shadow: 0 2px 0 rgba(255,255,255,.65); }
+.wash-instruction { position: absolute; z-index: 2; top: 32%; left: 50%; width: min(90vw,780px); margin: 0; color: #274f79; font-size: clamp(15px,1.7vw,21px); font-weight: 900; text-align: center; text-shadow: 0 2px 0 rgba(255,255,255,.65); transform: translateX(-50%); }
 
-.step-sources { position: absolute; top: 40%; left: 53%; display: grid; width: min(50vw,440px); height: auto; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(14px,2vw,24px); transform: translateX(-50%); }
+.step-sources { position: absolute; top: 37%; left: 53%; display: grid; width: min(50vw,440px); height: auto; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(14px,2vw,24px); transform: translateX(-50%); }
 .step-card { --tint:#dff5ff; position: relative; display: flex; min-width: 0; aspect-ratio: 3 / 4; flex-direction: column; align-items: center; justify-content: space-between; gap: .25rem; overflow: hidden; padding: 10px 10px 9px; border: 3px solid white; border-radius: 28px; background: linear-gradient(145deg,#fff,var(--tint)); box-shadow: 0 10px 0 rgba(74,139,203,.18),0 17px 27px rgba(47,99,153,.16); color: #28547e; cursor: grab; font: inherit; touch-action: none; user-select: none; transition: transform .18s ease,box-shadow .18s ease,outline-color .18s ease; }
 .step-rinse { --tint:#def6ff; }
 .step-soap { --tint:#fff0d2; }
@@ -45,7 +45,7 @@
 .drag-ghost .drag-cue { display: none; }
 
 .wash-dialog { z-index: 30; }
-.wash-dialog .dialog-art-wrap { position: relative; z-index: 1; width: min(76vw,510px); aspect-ratio: 1; animation: wash-pop .34s cubic-bezier(.2,.8,.25,1.2) both; }
+.wash-dialog .dialog-art-wrap { position: relative; z-index: 1; width: min(100%,510px); aspect-ratio: 1; animation: wash-pop .34s cubic-bezier(.2,.8,.25,1.2) both; }
 .wash-dialog .dialog-art { display: block; width: 100%; height: 100%; object-fit: contain; }
 .wash-dialog .dialog-hotspot { top: 73%; left: 22%; width: 56%; height: 17%; }
 .answer-sparkles { position: absolute; z-index: 5; inset: 0; pointer-events: none; }
@@ -56,8 +56,8 @@
 @media (min-aspect-ratio:1/1) and (max-height:620px) {
   .game-heading { top: 1vh; transform: translateX(-50%) scale(.82); transform-origin: top center; }
   .wash-coach { top: 21%; height: 18%; }
-  .wash-instruction { top: 32%; right: 6%; left: 38%; }
-  .step-sources { top: 36%; left: 53%; width: min(35vw,380px); height: auto; }
+  .wash-instruction { top: 25%; }
+  .step-sources { top: 30%; left: 53%; width: min(35vw,380px); height: auto; }
   .sequence-area { bottom: 3%; }
   .sequence-slot { height: clamp(86px,15vh,105px); }
 }
@@ -65,8 +65,8 @@
   .wash-heading { top: 3%; width: 78vw; }
   .wash-heading h1 { font-size: clamp(26px,6vw,40px); }
   .wash-coach { top: 19%; left: 3%; width: 46%; height: 18%; }
-  .wash-instruction { top: 36%; right: 6%; left: 6%; }
-  .step-sources { top: 42%; left: 50%; width: min(90vw,520px); height: auto; gap: 12px; }
+  .wash-instruction { top: 25%; width: min(90vw,520px); }
+  .step-sources { top: 30%; left: 50%; width: min(90vw,520px); height: auto; gap: 12px; }
   .step-card { padding: 8px 7px; border-radius: 21px; }
   .step-art { width: 100%; height: auto; }
   .step-caption { font-size: clamp(.78rem,3vw,1rem); }
@@ -84,8 +84,8 @@
 @media (max-height:470px) and (orientation:landscape) {
   .game-heading { top: 1vh; transform: translateX(-50%) scale(.72); }
   .wash-coach { top: 19%; height: 18%; }
-  .wash-instruction { top: 30%; right: 6%; left: 38%; }
-  .step-sources { top: 34%; left: 53%; width: min(35vw,360px); height: auto; }
+  .wash-instruction { top: 16%; }
+  .step-sources { top: 19%; left: 53%; width: min(35vw,360px); height: auto; }
   .step-card { padding: 6px; }
   .sequence-area { bottom: 2%; }
   .sequence-slot { height: 78px; }

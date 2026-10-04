@@ -88,8 +88,7 @@
 
   function showDialog(imagePath, alt, step) {
     dialogStep = step;
-    dialogArt.src = imagePath;
-    dialogArt.alt = alt;
+    window.setDialogArtwork(dialogArt, imagePath, alt);
     dialogAction.setAttribute("aria-label", step === 0 ? "Tutup pesan coba lagi" : step === 1 ? "Lanjut ke pratinjau level 3" : "Mulai level 3");
     if (!dialog.open) dialog.showModal();
   }
