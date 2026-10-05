@@ -1,8 +1,13 @@
 (() => {
   const enabledKey = "petualangan-level-sound-enabled";
+  const appleMasterKey = "petualangan-apple-audio-enabled";
+  const isAppleTouch = /iPhone|iPad|iPod/i.test(navigator.userAgent)
+    || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const levelMatch = window.location.pathname.match(/(m[1-3]-lv[1-3])\.html$/i);
   const level = levelMatch?.[1].toLowerCase() || "";
-  let enabled = sessionStorage.getItem(enabledKey) !== "off";
+  let enabled = isAppleTouch
+    ? sessionStorage.getItem(appleMasterKey) === "on"
+    : sessionStorage.getItem(enabledKey) !== "off";
   let hasStartedGuide = false;
   let guideNeedsRetry = false;
   let activeAudio = null;
@@ -22,6 +27,10 @@
   soundIcon.setAttribute("aria-hidden", "true");
   soundButton.append(soundIcon);
   document.body.append(soundButton);
+  if (isAppleTouch) {
+    document.body.classList.add("apple-audio-master");
+    soundButton.hidden = true;
+  }
 
   function updateButton() {
     soundIcon.src = enabled ? "asset/icon/sound.png" : "asset/icon/nosound.png";
@@ -108,8 +117,8 @@
     };
 
     if (level && firstCall) {
-      guideNeedsRetry = false;
-      playFile(`asset/audio/${level}.m4a`, complete, fallbackMs);
+      guideNeedsRetry = !enabled;
+      if (enabled) playFile(`asset/audio/${level}.m4a`, complete, fallbackMs);
       return;
     }
 
@@ -148,10 +157,28 @@
   soundButton.addEventListener("click", () => {
     enabled = !enabled;
     sessionStorage.setItem(enabledKey, enabled ? "on" : "off");
-    if (!enabled) stop();
+    if (!enabled) {
+      stop();
+      hideBubble?.();
+    }
     else if (level && guideNeedsRetry) {
       guideNeedsRetry = false;
       playFile(`asset/audio/${level}.m4a`);
+    }
+    updateButton();
+  });
+
+  document.addEventListener("petualangan-audio-master-change", (event) => {
+    if (!isAppleTouch) return;
+    enabled = Boolean(event.detail?.enabled);
+    sessionStorage.setItem(enabledKey, enabled ? "on" : "off");
+    if (!enabled) {
+      stop();
+      hideBubble?.();
+    }
+    else if (level && guideNeedsRetry) {
+      guideNeedsRetry = false;
+      playFile(`asset/audio/${level}.m4a`, () => hideBubble?.());
     }
     updateButton();
   });

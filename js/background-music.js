@@ -1,7 +1,12 @@
 (() => {
     const enabledKey = "petualangan-bgm-enabled";
     const positionKey = "petualangan-bgm-position";
-    const isEnabled = () => sessionStorage.getItem(enabledKey) !== "off";
+    const appleMasterKey = "petualangan-apple-audio-enabled";
+    const isAppleTouch = /iPhone|iPad|iPod/i.test(navigator.userAgent)
+        || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const isEnabled = () => isAppleTouch
+        ? sessionStorage.getItem(appleMasterKey) === "on"
+        : sessionStorage.getItem(enabledKey) !== "off";
 
     const music = new Audio("asset/audio/BGM-petualangan-si-kecil.m4a");
     music.loop = true;
@@ -23,10 +28,19 @@
 
     function updateToggle() {
         const playing = !music.paused && !music.ended;
-        icon.src = playing ? "asset/icon/music.png" : "asset/icon/nomusic.png";
-        toggle.setAttribute("aria-label", playing ? "Matikan musik latar" : "Nyalakan musik latar");
-        toggle.setAttribute("aria-pressed", String(playing));
-        toggle.title = playing ? "Matikan musik latar" : "Nyalakan musik latar";
+        const active = isAppleTouch ? isEnabled() : playing;
+        const onLabel = isAppleTouch ? "Matikan musik dan suara Dudu" : "Matikan musik latar";
+        const offLabel = isAppleTouch ? "Nyalakan musik dan suara Dudu" : "Nyalakan musik latar";
+        icon.src = active ? "asset/icon/music.png" : "asset/icon/nomusic.png";
+        toggle.setAttribute("aria-label", active ? onLabel : offLabel);
+        toggle.setAttribute("aria-pressed", String(active));
+        toggle.title = active ? onLabel : offLabel;
+    }
+
+    function setAppleMaster(enabled) {
+        sessionStorage.setItem(appleMasterKey, enabled ? "on" : "off");
+        sessionStorage.setItem("petualangan-level-sound-enabled", enabled ? "on" : "off");
+        document.dispatchEvent(new CustomEvent("petualangan-audio-master-change", { detail: { enabled } }));
     }
 
     async function playMusic() {
@@ -35,6 +49,7 @@
         } catch {
             // Browser dapat menolak autoplay. Tombol tetap bisa menyalakan musik
             // melalui interaksi pengguna.
+            if (isAppleTouch) setAppleMaster(false);
         }
         updateToggle();
     }
@@ -54,8 +69,18 @@
     music.addEventListener("ended", updateToggle);
     music.addEventListener("error", updateToggle);
 
+    document.addEventListener("petualangan-audio-master-change", (event) => {
+        if (!isAppleTouch || event.detail?.enabled) return;
+        sessionStorage.removeItem(positionKey);
+        music.pause();
+        if (music.readyState > 0) music.currentTime = 0;
+        updateToggle();
+    });
+
     toggle.addEventListener("click", () => {
-        if (!music.paused && !music.ended) {
+        const shouldEnable = isAppleTouch ? !isEnabled() : music.paused || music.ended;
+        if (!shouldEnable) {
+            if (isAppleTouch) setAppleMaster(false);
             sessionStorage.setItem(enabledKey, "off");
             sessionStorage.removeItem(positionKey);
             music.pause();
@@ -64,6 +89,7 @@
             return;
         }
 
+        if (isAppleTouch) setAppleMaster(true);
         sessionStorage.setItem(enabledKey, "on");
         sessionStorage.removeItem(positionKey);
         if (music.readyState > 0) music.currentTime = 0;

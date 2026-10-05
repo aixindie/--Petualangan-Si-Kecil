@@ -97,6 +97,7 @@ button {
 }
 
 .level-sound-toggle img { width: 100%; height: 100%; object-fit: contain; }
+.level-sound-toggle[hidden] { display: none; }
 .level-sound-toggle:hover { transform: scale(1.06); }
 .level-sound-toggle:focus-visible { outline: 3px solid white; outline-offset: 3px; }
 
