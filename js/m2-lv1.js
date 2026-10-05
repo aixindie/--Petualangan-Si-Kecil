@@ -11,7 +11,7 @@ const levelDialog = document.getElementById("levelDialog");
 const dialogArt = document.getElementById("dialogArt");
 const dialogAction = document.getElementById("dialogAction");
 
-const welcomeMessage = "Halo, teman-teman! Yuk, bantu Dudu memetik apel. Ayo hitung dari satu sampai tujuh!";
+const welcomeMessage = "Yuk, bantu Dudu memetik apel. Ayo hitung dari satu sampai tujuh!";
 const numberWords = ["", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh"];
 let pickedCount = 0;
 let dialogMode = "";
@@ -47,7 +47,7 @@ function pickApple(apple) {
         const msg = `${capitalize(numberWords[pickedCount])}! Sekarang ada ${numberWords[pickedCount]} apel di keranjang. Petik satu lagi!`;
         feedback.textContent = `🍎 ${pickedCount} dari 7 apel!`;
         feedback.classList.add("show");
-        speakAsDudu(msg, 7000);
+        speakCountAsDudu(msg, 7000);
         return;
     }
 
@@ -60,10 +60,21 @@ function pickApple(apple) {
     void dudu.offsetWidth;
     dudu.classList.add("is-celebrating");
     starEffect.classList.add("show");
-    speakAsDudu(completeMessage, 9000, showSuccessPopup);
+    speakCountAsDudu(completeMessage, 9000, showSuccessPopup);
+}
+
+function speakCountAsDudu(message, fallbackMs, onFinished) {
+    duduText.textContent = message;
+    duduBubble.classList.add("is-visible");
+    duduBubble.setAttribute("aria-hidden", "false");
+    window.levelAudio?.speakText(message, fallbackMs, () => {
+        hideDuduBubble();
+        onFinished?.();
+    });
 }
 
 function showSuccessPopup() {
+    window.levelAudio?.playEffect("success");
     dialogMode = "reward";
     dialogArt.src = "asset/icon/lanjut-lv1.png";
     dialogArt.alt = "Keren! Semua tujuh apel berhasil dipetik.";
@@ -87,6 +98,10 @@ dialogAction.addEventListener("click", () => {
 levelDialog.addEventListener("cancel", (event) => event.preventDefault());
 
 function speakAsDudu(message, fallbackMs, onFinished) {
+    duduText.textContent = message;
+    duduBubble.classList.add("is-visible");
+    duduBubble.setAttribute("aria-hidden", "false");
+    if (window.levelAudio) return window.levelAudio.speak(message, fallbackMs, onFinished, hideDuduBubble);
     stopDuduSpeech();
     duduText.textContent = message;
     duduBubble.classList.add("is-visible");
@@ -121,6 +136,7 @@ function speakAsDudu(message, fallbackMs, onFinished) {
 }
 
 function stopDuduSpeech() {
+    window.levelAudio?.stop();
     window.clearTimeout(speechTimer);
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     currentUtterance = null;

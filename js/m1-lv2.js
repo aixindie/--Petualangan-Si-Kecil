@@ -62,6 +62,7 @@ function showArtwork(source, description, mode) {
     window.clearTimeout(retryTimer);
     dialogMode = mode;
     window.setDialogArtwork(dialogArt, source, description);
+    if (mode === "reward") window.levelAudio?.playEffect("success");
     if (!feedbackDialog.open) feedbackDialog.showModal();
 }
 
@@ -89,6 +90,10 @@ feedbackDialog.addEventListener("close", () => {
 });
 
 function speakAsDudu(message, fallbackMs) {
+    duduText.textContent = message;
+    duduBubble.classList.add("is-visible");
+    duduBubble.setAttribute("aria-hidden", "false");
+    if (window.levelAudio) return window.levelAudio.speak(message, fallbackMs, null, hideDuduBubble);
     stopDuduSpeech();
     duduText.textContent = message;
     duduBubble.classList.add("is-visible");
@@ -119,6 +124,7 @@ function speakAsDudu(message, fallbackMs) {
 }
 
 function stopDuduSpeech() {
+    window.levelAudio?.stop();
     window.clearTimeout(speechTimer);
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     currentUtterance = null;

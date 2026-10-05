@@ -148,6 +148,8 @@
 
 .coach-mascot.is-celebrating { animation: dudu-celebrate 850ms cubic-bezier(.2,.8,.25,1.25); }
 
+.fruit-basket-level .dudu-coach { z-index: 2; }
+
 .fruit-basket-decoration {
     position: absolute;
     z-index: 1;
@@ -157,16 +159,9 @@
     height: clamp(145px, 22vh, 220px);
     object-fit: contain;
     filter: drop-shadow(0 7px 6px rgb(43 76 105 / 20%));
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translate(-50%, 8px) scale(.92);
-    transition: opacity 240ms ease, transform 240ms ease, visibility 240ms ease;
-}
-
-.dudu-bubble-hidden .fruit-basket-decoration {
     opacity: 1;
     visibility: visible;
+    pointer-events: none;
     transform: translate(-50%, 0) scale(1);
 }
 

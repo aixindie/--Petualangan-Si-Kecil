@@ -18,12 +18,17 @@
   }
 
   function stopSpeech() {
+    window.levelAudio?.stop();
     window.clearTimeout(speechTimer);
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     currentUtterance = null;
   }
 
   function speakAsDudu(message, timeout = 6000) {
+    duduText.textContent = message;
+    bubble.classList.add("is-visible");
+    bubble.setAttribute("aria-hidden", "false");
+    if (window.levelAudio) return window.levelAudio.speak(message, timeout, null, hideBubble);
     stopSpeech();
     duduText.textContent = message;
     bubble.classList.add("is-visible");
@@ -65,6 +70,7 @@
 
   function showDialog(isRetry) {
     dialogIsRetry = isRetry;
+    if (!isRetry) window.levelAudio?.playEffect("success");
     window.setDialogArtwork(
       dialogArt,
       isRetry ? "asset/icon/coba-lagi.png" : "asset/icon/lanjut-lv3.png",

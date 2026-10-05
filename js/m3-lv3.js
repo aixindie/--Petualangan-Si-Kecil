@@ -61,12 +61,17 @@
   }
 
   function stopSpeech() {
+    window.levelAudio?.stop();
     window.clearTimeout(speechTimer);
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     activeUtterance = null;
   }
 
   function speakAsDudu(text, fallback = 6000) {
+    message.textContent = text;
+    bubble.classList.add("is-visible");
+    bubble.setAttribute("aria-hidden", "false");
+    if (window.levelAudio) return window.levelAudio.speak(text, fallback, null, hideBubble);
     stopSpeech();
     message.textContent = text;
     bubble.classList.add("is-visible");
@@ -107,6 +112,7 @@
     mascot.classList.add("is-celebrating");
     speakAsDudu("Yeay! Kamu berhasil menebalkan seluruh jalannya sampai ke rak. Keren sekali!", 5000);
     window.setTimeout(() => {
+      window.levelAudio?.playEffect("success");
       dialog.showModal();
       dialogAction.focus();
     }, 650);
@@ -166,5 +172,5 @@
 
   dialog.addEventListener("cancel", (event) => event.preventDefault());
   window.addEventListener("pagehide", stopSpeech, { once: true });
-  speakAsDudu("Yuk, tebalkan garis putus-putus dari Dudu sampai rak mainan. Ikuti jalurnya pelan-pelan!", 7000);
+  speakAsDudu("Yuk, tebalkan garis putus-putus dari Dudu sampai rak. Ikuti jalurnya pelan-pelan!", 7000);
 })();

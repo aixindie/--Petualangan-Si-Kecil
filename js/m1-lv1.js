@@ -15,7 +15,7 @@ let retryTimer;
 let bubbleTimer;
 let currentUtterance = null;
 
-const welcomeMessage = "Halo, teman-teman! Yuk, bantu Dudu menemukan buah yang berwarna merah!";
+const welcomeMessage = "Haiii…. Ketemu lagi nih! Bantuin Dudu cari buah semangka ya… buahnya warna merah dan berbentuk segitiga!";
 const hintMessage = "Belum tepat, teman-teman! Coba cari buah yang merah dan bentuknya seperti segitiga.";
 
 // Pakai suara Bahasa Indonesia yang tersedia di perangkat. Balon tampil saat
@@ -81,12 +81,16 @@ function showArtwork(source, description, mode) {
     window.clearTimeout(retryTimer);
     dialogMode = mode;
     window.setDialogArtwork(dialogArt, source, description);
+    if (mode === "reward") window.levelAudio?.playEffect("success");
     if (!feedbackDialog.open) feedbackDialog.showModal();
 }
 
 function speakAsDudu(message, fallbackMs) {
+    duduText.textContent = message;
+    duduBubble.classList.add("is-visible");
+    duduBubble.setAttribute("aria-hidden", "false");
+    if (window.levelAudio) return window.levelAudio.speak(message, fallbackMs, null, hideDuduBubble);
     stopDuduSpeech();
-    document.body.classList.remove("dudu-bubble-hidden");
     duduText.textContent = message;
     duduBubble.classList.add("is-visible");
     duduBubble.setAttribute("aria-hidden", "false");
@@ -116,6 +120,7 @@ function speakAsDudu(message, fallbackMs) {
 }
 
 function stopDuduSpeech() {
+    window.levelAudio?.stop();
     window.clearTimeout(bubbleTimer);
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     currentUtterance = null;
@@ -124,7 +129,6 @@ function stopDuduSpeech() {
 function hideDuduBubble() {
     duduBubble.classList.remove("is-visible");
     duduBubble.setAttribute("aria-hidden", "true");
-    document.body.classList.add("dudu-bubble-hidden");
 }
 
 dialogAction.addEventListener("click", () => {

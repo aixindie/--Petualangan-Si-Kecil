@@ -16,6 +16,7 @@ let feedbackTimer;
 let speechTimer;
 let currentUtterance = null;
 let finished = false;
+const countWords = ["satu", "dua", "tiga"];
 
 const welcomeMessage = "Hore! Kita sudah sampai di kelas. Bantu Dudu menemukan tiga meja bundar!";
 
@@ -57,14 +58,25 @@ function discoverTable(button, index) {
         void dudu.offsetWidth;
         dudu.classList.add("is-celebrating");
         starEffect.classList.add("show");
-        speakAsDudu(messages[2], 9000, showFinishPopup);
+        speakCountAsDudu(messages[2], 2500, showFinishPopup, countWords[foundCount - 1]);
     } else {
-        speakAsDudu(messages[foundCount - 1], 8000);
+        speakCountAsDudu(messages[foundCount - 1], 2500, null, countWords[foundCount - 1]);
         feedbackTimer = window.setTimeout(() => feedback.classList.remove("show"), 1800);
     }
 }
 
+function speakCountAsDudu(message, fallbackMs, onFinished, spokenText = message) {
+    duduText.textContent = message;
+    duduBubble.classList.add("is-visible");
+    duduBubble.setAttribute("aria-hidden", "false");
+    window.levelAudio?.speakText(spokenText, fallbackMs, () => {
+        hideDuduBubble();
+        onFinished?.();
+    });
+}
+
 function showFinishPopup() {
+    window.levelAudio?.playEffect("success");
     finishArt.src = "asset/icon/lanjut-lv3.png";
     finishArt.alt = "Keren! Kamu menyelesaikan level 3.";
     finishDialog.showModal();
@@ -78,6 +90,10 @@ finishAction.addEventListener("click", () => {
 finishDialog.addEventListener("cancel", (event) => event.preventDefault());
 
 function speakAsDudu(message, fallbackMs, onFinished) {
+    duduText.textContent = message;
+    duduBubble.classList.add("is-visible");
+    duduBubble.setAttribute("aria-hidden", "false");
+    if (window.levelAudio) return window.levelAudio.speak(message, fallbackMs, onFinished, hideDuduBubble);
     stopDuduSpeech();
     duduText.textContent = message;
     duduBubble.classList.add("is-visible");
@@ -112,6 +128,7 @@ function speakAsDudu(message, fallbackMs, onFinished) {
 }
 
 function stopDuduSpeech() {
+    window.levelAudio?.stop();
     window.clearTimeout(speechTimer);
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     currentUtterance = null;

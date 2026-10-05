@@ -31,12 +31,17 @@
   }
 
   function stopSpeech() {
+    window.levelAudio?.stop();
     window.clearTimeout(speechTimer);
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     currentUtterance = null;
   }
 
   function speakAsDudu(message, timeout = 6000) {
+    duduText.textContent = message;
+    bubble.classList.add("is-visible");
+    bubble.setAttribute("aria-hidden", "false");
+    if (window.levelAudio) return window.levelAudio.speak(message, timeout, null, hideBubble);
     stopSpeech();
     duduText.textContent = message;
     bubble.classList.add("is-visible");
@@ -88,6 +93,7 @@
 
   function showDialog(imagePath, alt, step) {
     dialogStep = step;
+    if (step === 1) window.levelAudio?.playEffect("success");
     window.setDialogArtwork(dialogArt, imagePath, alt);
     dialogAction.setAttribute("aria-label", step === 0 ? "Tutup pesan coba lagi" : step === 1 ? "Lanjut ke pratinjau level 3" : "Mulai level 3");
     if (!dialog.open) dialog.showModal();

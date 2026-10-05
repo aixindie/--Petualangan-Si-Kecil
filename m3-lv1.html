@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#9ccafa">
   <title>Misi 3 — Urutan Mencuci Tangan</title>
-  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/global.css?v=20261006-background-music">
   <link rel="stylesheet" href="css/m3-lv1.css">
 </head>
 <body class="fruit-game-page wash-game-page">
@@ -42,12 +42,12 @@
       <button class="step-card step-rinse" type="button" data-step="rinse" aria-label="Bilas tangan">
         <span class="step-art"><img src="asset/misi3/bilas.png" alt="Anak membilas tangan dengan air"></span>
         <span class="step-caption"><i>💧</i> Bilas tangan</span>
-        <span class="drag-cue">Pilih atau tarik</span>
+        <span class="drag-cue"></span>
       </button>
       <button class="step-card step-soap" type="button" data-step="soap" aria-label="Pakai sabun">
         <span class="step-art"><img src="asset/misi3/sabun.png" alt="Anak menggosok tangan dengan sabun"></span>
         <span class="step-caption"><i>🫧</i> Pakai sabun</span>
-        <span class="drag-cue">Pilih atau tarik</span>
+        <span class="drag-cue"></span>
       </button>
     </section>
 
@@ -82,6 +82,8 @@
     <div class="drag-ghost" id="drag-ghost" aria-hidden="true"></div>
   </main>
   <script src="js/dialog-art.js" defer></script>
+  <script src="js/level-audio.js?v=20261006-level-audio" defer></script>
   <script src="js/m3-lv1.js" defer></script>
+  <script src="js/background-music.js?v=20261006-background-music" defer></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#a9d7ff">
   <title>Misi 2 — Pilih Keranjang Banyak</title>
-  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/global.css?v=20261006-background-music">
   <link rel="stylesheet" href="css/m2-lv2.css?v=20261005-laptop-basket-layout">
 </head>
 <body class="fruit-game-page basket-game-page">
@@ -42,15 +42,13 @@
         <button class="basket-choice basket-choice-three" type="button" data-count="3" aria-label="Pilih keranjang berisi 3 batu">
           <span class="basket-choice-number">A</span>
           <span class="basket-choice-art"><img src="asset/misi2/3-batu.png" alt="Tiga batu berwarna-warni"></span>
-          <span class="basket-choice-caption">3 batu</span>
-          <span class="basket-choice-hint">Sedikit</span>
+
         </button>
         <span class="versus-badge" aria-hidden="true">VS</span>
         <button class="basket-choice basket-choice-five" type="button" data-count="5" aria-label="Pilih keranjang berisi 5 batu">
           <span class="basket-choice-number">B</span>
           <span class="basket-choice-art"><img src="asset/misi2/5-batu.png" alt="Lima batu berwarna-warni"></span>
-          <span class="basket-choice-caption">5 batu</span>
-          <span class="basket-choice-hint">Lebih banyak?</span>
+
         </button>
       </div>
       <p class="answer-feedback" id="answer-feedback" role="status" aria-live="polite"></p>
@@ -65,6 +63,8 @@
     <div class="answer-sparkles" id="answer-sparkles" aria-hidden="true"></div>
   </main>
   <script src="js/dialog-art.js" defer></script>
+  <script src="js/level-audio.js?v=20261006-level-audio" defer></script>
   <script src="js/m2-lv2.js" defer></script>
+  <script src="js/background-music.js?v=20261006-background-music" defer></script>
 </body>
 </html>
