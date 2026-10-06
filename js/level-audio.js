@@ -1,12 +1,11 @@
 (() => {
   const enabledKey = "petualangan-level-sound-enabled";
-  const appleMasterKey = "petualangan-apple-audio-enabled";
   const isAppleTouch = /iPhone|iPad|iPod/i.test(navigator.userAgent)
     || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const levelMatch = window.location.pathname.match(/(m[1-3]-lv[1-3])\.html$/i);
   const level = levelMatch?.[1].toLowerCase() || "";
   let enabled = isAppleTouch
-    ? sessionStorage.getItem(appleMasterKey) === "on"
+    ? sessionStorage.getItem(enabledKey) === "on"
     : sessionStorage.getItem(enabledKey) !== "off";
   let hasStartedGuide = false;
   let guideNeedsRetry = false;
@@ -27,10 +26,6 @@
   soundIcon.setAttribute("aria-hidden", "true");
   soundButton.append(soundIcon);
   document.body.append(soundButton);
-  if (isAppleTouch) {
-    document.body.classList.add("apple-audio-master");
-    soundButton.hidden = true;
-  }
 
   function updateButton() {
     soundIcon.src = enabled ? "asset/icon/sound.png" : "asset/icon/nosound.png";
@@ -73,7 +68,14 @@
     audio.addEventListener("error", () => {
       if (activeAudio !== audio) return;
       activeAudio = null;
-      if (level && path.endsWith(`${level}.m4a`)) guideNeedsRetry = true;
+      if (level && path.endsWith(`${level}.m4a`)) {
+        guideNeedsRetry = true;
+        if (isAppleTouch) {
+          enabled = false;
+          sessionStorage.setItem(enabledKey, "off");
+          updateButton();
+        }
+      }
       if (onEnded) finishTimer = window.setTimeout(onEnded, fallbackMs);
     }, { once: true });
     const result = audio.play();
@@ -83,6 +85,11 @@
         activeAudio = null;
         if (level && path.endsWith(`${level}.m4a`)) {
           guideNeedsRetry = true;
+          if (isAppleTouch) {
+            enabled = false;
+            sessionStorage.setItem(enabledKey, "off");
+            updateButton();
+          }
         }
         if (onEnded) finishTimer = window.setTimeout(onEnded, fallbackMs);
       });
@@ -156,21 +163,6 @@
 
   soundButton.addEventListener("click", () => {
     enabled = !enabled;
-    sessionStorage.setItem(enabledKey, enabled ? "on" : "off");
-    if (!enabled) {
-      stop();
-      hideBubble?.();
-    }
-    else if (level && guideNeedsRetry) {
-      guideNeedsRetry = false;
-      playFile(`asset/audio/${level}.m4a`);
-    }
-    updateButton();
-  });
-
-  document.addEventListener("petualangan-audio-master-change", (event) => {
-    if (!isAppleTouch) return;
-    enabled = Boolean(event.detail?.enabled);
     sessionStorage.setItem(enabledKey, enabled ? "on" : "off");
     if (!enabled) {
       stop();
